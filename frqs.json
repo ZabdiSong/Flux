@@ -1,0 +1,584 @@
+[
+  {
+    "id": "frq-1",
+    "title": "The semicircle field",
+    "unit": 8,
+    "source": "frq.docx",
+    "prompt": "A thin nonconducting rod has uniform linear charge density λ and is bent into a semicircle of radius R. Find the field at its center. To specify direction, place the arc in the upper half of the xy-plane, with its center at the origin; take λ>0.",
+    "steps": [
+      {
+        "question": "What does “linear charge density” mean, and what is the charge in a tiny arc?",
+        "hint": "λ is charge per unit length. A small arc of angle dθ has length R dθ.",
+        "answer": "Choose θ from 0 to π. The arc element is ds=R dθ, so dq=λ ds=λR dθ. This replaces one continuous rod by many tiny source charges.",
+        "rubric": "State dq=λR dθ and limits 0 to π."
+      },
+      {
+        "question": "What is the field vector at the center from one element?",
+        "hint": "For positive source charge the field points away from that element, toward the origin.",
+        "answer": "All elements are distance R from the origin. The magnitude is dE=k dq/R². The direction from the element to the origin is −cosθ x̂−sinθ ŷ, so dE=(kλ/R)(−cosθ x̂−sinθ ŷ)dθ, with k=1/(4πε₀).",
+        "rubric": "Use Coulomb’s field, distance R, and correct inward components."
+      },
+      {
+        "question": "Which component cancels by symmetry?",
+        "hint": "Pair an element at θ with one at π−θ.",
+        "answer": "The pair has opposite horizontal components, so Eₓ=0. Both vertical components point down and add. Symmetry tells us which integral vanishes, but it does not replace the remaining vertical integral.",
+        "rubric": "Explain cancellation of horizontal components and addition of vertical components."
+      },
+      {
+        "question": "How do we add all the vertical pieces?",
+        "hint": "Integrate the projected component, not the magnitude of every field.",
+        "answer": "Eᵧ=−(kλ/R)∫₀^π sinθ dθ. Since ∫sinθ dθ=−cosθ, the definite integral is [−cosθ]₀^π=1−(−1)=2. Thus Eᵧ=−2kλ/R.",
+        "rubric": "Set up and evaluate the sine integral with bounds."
+      },
+      {
+        "question": "What is the final vector, and how does its direction change for negative λ?",
+        "hint": "The sign of λ is retained in the vector formula.",
+        "answer": "E=−(2kλ/R)ŷ. For λ>0 it points downward, toward the opening. If λ<0 it points upward toward the negatively charged arc. The magnitude is 2k|λ|/R.",
+        "rubric": "Give both magnitude and direction, consistent with charge sign."
+      },
+      {
+        "question": "How can total charge Q be used to check the answer?",
+        "hint": "The semicircle length is πR.",
+        "answer": "Q=λπR, hence E magnitude=2kQ/(πR²) for Q>0. Units are (N m²/C²)(C/m)/m=N/C. This is less than kQ/R² because the differently directed fields only partly add.",
+        "rubric": "Relate Q to λ, verify N/C, and recognize vector cancellation."
+      }
+    ],
+    "final": "E=−(2kλ/R)ŷ for the upper semicircle. Magnitude 2k|λ|/R.",
+    "shortcut": "Once this integral is known, reuse E=2kλ/R for the center of a uniformly charged semicircle. Gauss’s law does not directly determine E here because the required symmetry is absent.",
+    "pitfall": "Using E=kQ/R² treats all contributions as parallel. Also, dq is λR dθ, not λ dθ."
+  },
+  {
+    "id": "frq-2",
+    "title": "Infinite wire: integral and Gauss",
+    "unit": 8,
+    "source": "frq.docx",
+    "prompt": "Find the electric field a perpendicular distance d>0 from an infinitely long straight wire with uniform linear charge density λ. Put the wire on the x-axis and the observation point at (0,d); assume λ>0.",
+    "steps": [
+      {
+        "question": "What source coordinate and charge element should we choose?",
+        "hint": "The source point moves along the wire; the observation point stays fixed.",
+        "answer": "Use x for source position. Then dq=λ dx, with x running from −∞ to +∞. The source-to-observation separation is r=√(x²+d²).",
+        "rubric": "Specify dq, the observation distance, and infinite bounds."
+      },
+      {
+        "question": "Which field components survive?",
+        "hint": "Pair source elements at +x and −x.",
+        "answer": "The horizontal fields cancel. The perpendicular components both point upward. Each element’s field magnitude is kλ dx/(x²+d²), and its upward projection factor is d/√(x²+d²).",
+        "rubric": "Use symmetry and the correct projection factor."
+      },
+      {
+        "question": "What integral gives the perpendicular field?",
+        "hint": "Coulomb’s inverse-square factor and the direction projection multiply.",
+        "answer": "Eᵧ=kλd∫₋∞^∞ dx/(x²+d²)^(3/2). The exponent 3/2 comes from one inverse-square factor and one additional separation in the projection.",
+        "rubric": "Write the full integral, including d in the numerator."
+      },
+      {
+        "question": "How do we evaluate this integral?",
+        "hint": "Differentiate x/√(x²+d²), or substitute x=d tanθ.",
+        "answer": "An antiderivative is x/[d²√(x²+d²)]. Its limit is +1/d² at +∞ and −1/d² at −∞. Therefore Eᵧ=kλd(2/d²)=2kλ/d.",
+        "rubric": "Evaluate the two infinite limits and obtain 2kλ/d."
+      },
+      {
+        "question": "Can Gauss’s law give the same field more quickly?",
+        "hint": "Choose a cylinder with radius d, length ℓ, and axis along the wire.",
+        "answer": "The field is constant and normal on the curved surface, with zero flux through the end caps. Gauss’s law gives E(2πdℓ)=λℓ/ε₀, so E=λ/(2πε₀d)=2kλ/d.",
+        "rubric": "Use curved area 2πdℓ, enclosed charge λℓ, and zero cap flux."
+      },
+      {
+        "question": "What are the direction and distance dependence?",
+        "hint": "An infinite wire spreads field over cylindrical, not spherical, surfaces.",
+        "answer": "For λ>0 the field is radial outward from the wire; at (0,d) it is +ŷ. Its magnitude falls as 1/d. Negative λ reverses the direction. This result assumes infinite length or observation far from finite-wire ends.",
+        "rubric": "State radial direction, 1/d dependence, and the long-wire assumption."
+      }
+    ],
+    "final": "E=λ/(2πε₀d)=2kλ/d radially outward for λ>0.",
+    "shortcut": "Gauss’s law reduces the surface integral to E·2πdℓ because of cylindrical symmetry. The line-charge integral explains why this shortcut works.",
+    "pitfall": "Do not use the point-charge 1/d² law for an infinite wire or omit the vector projection in the integral."
+  },
+  {
+    "id": "frq-3",
+    "title": "Energy change around a source charge",
+    "unit": 9,
+    "source": "frq.docx",
+    "prompt": "A positive charge +q moves from A to B in the electrostatic field of a fixed positive point charge +Q. Let rA and rB be the distances from Q to A and B. Find ΔU=UB−UA for any path between the endpoints.",
+    "steps": [
+      {
+        "question": "What field and force act at radial distance r?",
+        "hint": "Use Coulomb’s law, keeping source charge Q separate from moving charge q.",
+        "answer": "The source field is E(r)=kQ/r² radially outward. The force on +q is F(r)=qE=kQq/r² radially outward. The force changes along the path as r changes.",
+        "rubric": "State both field and force with inverse-square radial dependence."
+      },
+      {
+        "question": "How is potential-energy change related to work?",
+        "hint": "Potential energy falls when the electric field does positive work.",
+        "answer": "ΔU=−Wfield=−∫AᴮF·dl. Only the radial component of dl contributes, since F is radial. Thus ΔU=−kQq∫rA^rB r⁻² dr.",
+        "rubric": "Include the minus sign and correct radial bounds."
+      },
+      {
+        "question": "What does the definite integral evaluate to?",
+        "hint": "The antiderivative of r⁻² is −r⁻¹.",
+        "answer": "ΔU=−kQq[−1/r]rA^rB=kQq(1/rB−1/rA). The order is final reciprocal distance minus initial reciprocal distance.",
+        "rubric": "Correctly evaluate the antiderivative at both endpoints."
+      },
+      {
+        "question": "What happens if B is farther from Q?",
+        "hint": "For rB>rA, compare their reciprocals.",
+        "answer": "If rB>rA, then 1/rB<1/rA and ΔU<0. The positive charges repel, so moving outward lets the field do positive work. If the field alone does work, ΔK=−ΔU>0.",
+        "rubric": "Connect the negative energy change to repulsion and positive field work."
+      },
+      {
+        "question": "Why does the path shape not appear?",
+        "hint": "Electrostatic forces are conservative.",
+        "answer": "Tangential motion along a constant-r arc contributes zero because E·dl=0 there. More generally, the electrostatic line integral depends only on endpoints. Thus a curved path and a radial-plus-arc path give the same ΔU.",
+        "rubric": "Explain path independence without replacing radial distance by path length."
+      },
+      {
+        "question": "How can the endpoint-potential method check the result?",
+        "hint": "For an isolated point charge, choose V=0 at infinity.",
+        "answer": "V(r)=kQ/r and U(r)=qV(r)=kQq/r. Subtracting UB−UA reproduces the integral. This is the quicker method after the point-charge potential has been derived.",
+        "rubric": "Use ΔU=qΔV with the correct endpoint order."
+      }
+    ],
+    "final": "ΔU=kQq(1/rB−1/rA).",
+    "shortcut": "Calculate q(VB−VA) using V=kQ/r. This is the endpoint form of the same force integral.",
+    "pitfall": "Using −qEΔr with one constant E is not valid for a general point-charge field, whose magnitude varies with r."
+  },
+  {
+    "id": "frq-4",
+    "title": "Bring in the third charge",
+    "unit": 9,
+    "source": "frq.docx",
+    "prompt": "Two fixed positive charges q₁ and q₂ are already a distance s apart. Find the external work required to bring a third positive charge q₃ quasistatically from infinity to the remaining vertex of an equilateral triangle of side s. “Quasistatically” means there is no change in kinetic energy.",
+    "steps": [
+      {
+        "question": "Which pair energies change when q₃ arrives?",
+        "hint": "The initial two charges do not move.",
+        "answer": "The q₁–q₂ interaction stays constant. Only the new q₁–q₃ and q₂–q₃ interactions are added. Their final separations are both s.",
+        "rubric": "Identify two changing pairs and exclude the unchanged q₁q₂/s term."
+      },
+      {
+        "question": "Why is external work equal to the change in potential energy?",
+        "hint": "Apply work-energy to the incoming particle.",
+        "answer": "Wexternal+Wfield=ΔK=0. Since Wfield=−ΔU, Wexternal=ΔU. Positive external work is required to push a positive charge against repulsion.",
+        "rubric": "State the quasistatic condition and the external-work sign."
+      },
+      {
+        "question": "How can we express this as a field integral?",
+        "hint": "Use superposition before integrating.",
+        "answer": "Wexternal=−q₃∫∞^P(E₁+E₂)·dl=−q₃∫∞^P E₁·dl−q₃∫∞^P E₂·dl. Electrostatic path independence allows each source contribution to be evaluated from its initial and final source distance.",
+        "rubric": "Set up the negative field integral and split it into two sources."
+      },
+      {
+        "question": "What is the contribution from each fixed charge?",
+        "hint": "For each source, integrate kqᵢ/rᵢ² from infinity to s.",
+        "answer": "For i=1 or 2, −kqᵢq₃∫∞ˢrᵢ⁻² dr=−kqᵢq₃[−1/rᵢ]∞ˢ=kqᵢq₃/s. Both contributions are positive.",
+        "rubric": "Evaluate at infinity and s with a positive result."
+      },
+      {
+        "question": "What is the total external work?",
+        "hint": "Add the two new interactions once each.",
+        "answer": "Wexternal=kq₁q₃/s+kq₂q₃/s=kq₃(q₁+q₂)/s. The work done by the electric field is its negative.",
+        "rubric": "Give the complete work expression and distinguish external from field work."
+      },
+      {
+        "question": "How does the potential shortcut work?",
+        "hint": "Potential is scalar and belongs to the existing sources.",
+        "answer": "At P, V(P)=kq₁/s+kq₂/s with V(∞)=0. Therefore Wexternal=q₃V(P). The incoming charge’s own field is not included in the potential acting on itself.",
+        "rubric": "Add scalar source potentials and multiply by q₃."
+      }
+    ],
+    "final": "Wexternal=kq₃(q₁+q₂)/s.",
+    "shortcut": "Find the potential from q₁ and q₂ at the new vertex, then multiply by q₃. Do not recalculate the unchanged initial interaction.",
+    "pitfall": "The work to add only q₃ differs from the work to assemble all three charges from infinity."
+  },
+  {
+    "id": "frq-5",
+    "title": "Center-to-surface voltage of a solid sphere",
+    "unit": 9,
+    "source": "frq.docx",
+    "prompt": "A total charge Q is uniformly distributed throughout a nonconducting solid sphere of radius R. Find the potential difference Vcenter−Vsurface. Assume Q>0; the signed formula also works for Q<0.",
+    "steps": [
+      {
+        "question": "What is the uniform charge density?",
+        "hint": "Divide total charge by the sphere volume.",
+        "answer": "ρ=Q/[(4/3)πR³]=3Q/(4πR³). This is a volume distribution, not charge confined to a conductor’s surface.",
+        "rubric": "Use sphere volume and distinguish an insulating volume from a conductor."
+      },
+      {
+        "question": "How much charge lies inside radius r≤R?",
+        "hint": "Integrate thin spherical shells of source radius s.",
+        "answer": "A shell has volume dV=4πs² ds. Qenc(r)=∫₀ʳρ4πs² ds=4πρr³/3=Q(r³/R³). The r³ dependence reflects enclosed volume.",
+        "rubric": "Show the charge integral and obtain Qr³/R³."
+      },
+      {
+        "question": "What field does Gauss’s law give inside?",
+        "hint": "Use a concentric Gaussian sphere of area 4πr².",
+        "answer": "Spherical symmetry gives E(r)4πr²=Qenc(r)/ε₀. Therefore E(r)=Qr/(4πε₀R³)=kQr/R³ outward. At the center E=0, but elsewhere inside the insulator E is nonzero.",
+        "rubric": "Derive the field proportional to r."
+      },
+      {
+        "question": "Which integral matches the requested order of potentials?",
+        "hint": "Write final potential minus initial potential before substituting bounds.",
+        "answer": "Vcenter−Vsurface=−∫surface^center E·dl=−∫R⁰(kQr/R³)dr=∫₀ᴿ(kQr/R³)dr. The reversed bounds make the difference positive for Q>0.",
+        "rubric": "Choose the center-minus-surface sign and consistent bounds."
+      },
+      {
+        "question": "Evaluate the voltage difference.",
+        "hint": "Integrate r rather than replacing the whole interior field by its surface value.",
+        "answer": "Vcenter−Vsurface=(kQ/R³)[r²/2]₀ᴿ=kQ/(2R)=Q/(8πε₀R). Because E grows linearly from 0 to kQ/R², the area under E(r) is a triangle.",
+        "rubric": "Obtain kQ/(2R) with the factor 1/2."
+      },
+      {
+        "question": "How do absolute potentials or a graph check this?",
+        "hint": "Take V=0 at infinity and use the external point-charge field.",
+        "answer": "Vsurface=kQ/R. Thus Vcenter=3kQ/(2R). Alternatively the area under the E-versus-r graph is ½R·(kQ/R²)=kQ/(2R), exactly the integral. The center has the higher potential for positive Q.",
+        "rubric": "Check using either absolute potentials or the triangular area."
+      }
+    ],
+    "final": "Vcenter−Vsurface=kQ/(2R)=Q/(8πε₀R).",
+    "shortcut": "The interior E(r) graph is a straight line, so its area from 0 to R is ½·base·height. This geometric shortcut is the same definite integral.",
+    "pitfall": "Do not use E=kQ/r² inside a uniformly charged solid insulator. Also, E=0 at one point does not imply V=0 there."
+  },
+  {
+    "id": "frq-6",
+    "title": "Coaxial cylindrical capacitor",
+    "unit": 10,
+    "source": "10.3",
+    "prompt": "A long coaxial capacitor has inner conducting radius a, outer thin-shell radius b>a, and length L≫b. The inner conductor carries +Q and the outer −Q; the gap is vacuum. (a) Derive E(r) for a<r<b. (b) Derive V=Vinner−Vouter. (c) Find C. (d) What happens to C when L doubles with a and b fixed?",
+    "steps": [
+      {
+        "question": "What Gaussian surface fits the geometry?",
+        "hint": "Use the symmetry of a long cylinder; neglect end effects.",
+        "answer": "Choose a coaxial Gaussian cylinder of radius r with a<r<b and length ℓ within the capacitor. Its enclosed charge is (Q/L)ℓ. E is radial, constant on the curved side, and parallel to the end caps.",
+        "rubric": "Specify a coaxial cylinder, Qenc=Qℓ/L, and the symmetry assumption."
+      },
+      {
+        "question": "Derive the gap field from flux.",
+        "hint": "The curved side area is 2πrℓ.",
+        "answer": "∮E·dA=E(r)2πrℓ=Qℓ/(ε₀L), so E(r)=Q/(2πε₀Lr), directed outward from the inner positive conductor. The caps contribute zero flux.",
+        "rubric": "Write Gauss’s law and derive the 1/r field."
+      },
+      {
+        "question": "Set up the potential difference with the correct sign.",
+        "hint": "The positive inner conductor has higher potential.",
+        "answer": "Vinner−Vouter=−∫bᵃE(r)dr=∫aᵇQ/(2πε₀Lr)dr. This integral adds the infinitesimal potential drops across the gap.",
+        "rubric": "Use inner-minus-outer order and integrate between a and b."
+      },
+      {
+        "question": "Why does a logarithm appear?",
+        "hint": "The antiderivative of 1/r is ln r.",
+        "answer": "V=Q/(2πε₀L)[ln r]aᵇ=Q ln(b/a)/(2πε₀L). The argument b/a is dimensionless and greater than 1, so V is positive.",
+        "rubric": "Obtain ln(b/a) with the correct prefactor and sign."
+      },
+      {
+        "question": "How do we obtain capacitance?",
+        "hint": "Capacitance is positive stored-charge magnitude divided by the potential difference.",
+        "answer": "C=Q/V=2πε₀L/ln(b/a). Q cancels because increasing charge also increases voltage by the same factor for this fixed linear geometry.",
+        "rubric": "Use C=Q/V and cancel Q correctly."
+      },
+      {
+        "question": "What changes when L doubles?",
+        "hint": "Look at the geometry dependence, not just Q.",
+        "answer": "With a and b fixed, C is proportional to L, so Cnew=2C. If Q stays fixed, the gap field and voltage halve; if voltage is held fixed by a battery, the stored charge doubles. Either condition gives the same new capacitance.",
+        "rubric": "State that capacitance doubles and justify C∝L."
+      }
+    ],
+    "final": "E(r)=Q/(2πε₀Lr); Vinner−Vouter=Q ln(b/a)/(2πε₀L); C=2πε₀L/ln(b/a); doubling L doubles C.",
+    "shortcut": "Use the known long-wire field with λ=Q/L, then integrate it across the gap. A parallel-plate approximation is only appropriate when b−a≪a.",
+    "pitfall": "Using V=E(b−a) with one field value ignores the 1/r variation. The sign of V must match inner minus outer."
+  },
+  {
+    "id": "frq-7",
+    "title": "Quarter-circle challenge",
+    "unit": 8,
+    "source": "original",
+    "prompt": "Original practice: A positively charged rod with uniform linear density λ occupies the quarter-circle x²+y²=R² in the first quadrant, from θ=0 to θ=π/2. Find the field vector and magnitude at the origin.",
+    "steps": [
+      {
+        "question": "How does the charge element compare with a semicircle?",
+        "hint": "Only the angle limits change.",
+        "answer": "dq=λR dθ remains valid. The range is now 0≤θ≤π/2, and total charge is Q=λπR/2.",
+        "rubric": "Use the same arc element with quarter-circle bounds."
+      },
+      {
+        "question": "What direction does each elemental field point?",
+        "hint": "The observation point is southwest of every element.",
+        "answer": "dEₓ=−(kλ/R)cosθ dθ and dEᵧ=−(kλ/R)sinθ dθ. Both components are nonpositive on this interval.",
+        "rubric": "Give both negative projected components."
+      },
+      {
+        "question": "Evaluate the x-component integral.",
+        "hint": "∫cosθ dθ=sinθ.",
+        "answer": "Eₓ=−(kλ/R)[sinθ]₀^(π/2)=−kλ/R. Unlike the semicircle, there is no left-right cancellation.",
+        "rubric": "Evaluate the horizontal component rather than setting it to zero."
+      },
+      {
+        "question": "Evaluate the y-component integral.",
+        "hint": "∫sinθ dθ=−cosθ.",
+        "answer": "Eᵧ=−(kλ/R)[−cosθ]₀^(π/2)=−kλ/R. Reflection across y=x makes the final component magnitudes equal.",
+        "rubric": "Evaluate the vertical component and recognize diagonal symmetry."
+      },
+      {
+        "question": "Combine the components into magnitude and direction.",
+        "hint": "Use the Pythagorean theorem for perpendicular components.",
+        "answer": "E=−(kλ/R)(x̂+ŷ), so |E|=√2 kλ/R. It points along the southwest diagonal, 225° measured counterclockwise from +x.",
+        "rubric": "State vector, magnitude, and direction."
+      },
+      {
+        "question": "How does the result look in terms of total charge Q?",
+        "hint": "Substitute λ=2Q/(πR).",
+        "answer": "|E|=2√2 kQ/(πR²). The result is smaller than kQ/R² because the elemental vectors point in different directions. The semicircle formula cannot simply be halved because the surviving directions also change.",
+        "rubric": "Express the result in Q and avoid an unjustified halving shortcut."
+      }
+    ],
+    "final": "E=−(kλ/R)(x̂+ŷ); |E|=√2 kλ/R, southwest.",
+    "shortcut": "Symmetry about y=x tells us Eₓ=Eᵧ, so evaluating one component integral is enough. It does not make either component zero.",
+    "pitfall": "Halving the semicircle’s field magnitude gives the wrong vector result.",
+    "variantOf": "frq-1"
+  },
+  {
+    "id": "frq-8",
+    "title": "Finite wire at its perpendicular bisector",
+    "unit": 8,
+    "source": "original",
+    "prompt": "Original practice: A uniform rod of length L and total positive charge Q lies on the x-axis from −L/2 to +L/2. Find the electric field at (0,d), where d>0. Then check the limits d≪L and d≫L.",
+    "steps": [
+      {
+        "question": "What are dq and the source-to-point distance?",
+        "hint": "The rod has finite bounds.",
+        "answer": "λ=Q/L, dq=λ dx, and r=√(x²+d²). Integrate x from −L/2 to +L/2.",
+        "rubric": "Specify λ, dq, distance, and finite bounds."
+      },
+      {
+        "question": "What field component survives symmetry?",
+        "hint": "Pair equal charges at ±x.",
+        "answer": "Horizontal components cancel. The vertical component is dEᵧ=kλd dx/(x²+d²)^(3/2), directed upward.",
+        "rubric": "Include the projection d/√(x²+d²)."
+      },
+      {
+        "question": "Set up and evaluate the integral.",
+        "hint": "Use the same antiderivative as the infinite-wire problem, but finite bounds.",
+        "answer": "Eᵧ=kλd[x/(d²√(x²+d²))]₋ᴸ⁄₂^ᴸ⁄₂=kλL/[d√(d²+(L/2)²)]. Since λL=Q, Eᵧ=kQ/[d√(d²+(L/2)²)].",
+        "rubric": "Evaluate both endpoints and simplify."
+      },
+      {
+        "question": "What is the near-middle, long-wire limit?",
+        "hint": "When d≪L, the square root is approximately L/2.",
+        "answer": "E≈kQ/[d(L/2)]=2kQ/(Ld)=2kλ/d. This is the infinite-wire result because the ends are relatively far from the observation point.",
+        "rubric": "Recover the 1/d long-wire approximation."
+      },
+      {
+        "question": "What is the far-away limit?",
+        "hint": "When d≫L, the square root is approximately d.",
+        "answer": "E≈kQ/d². Far away, the rod looks like one point charge with its total charge Q.",
+        "rubric": "Recover the 1/d² point-charge approximation."
+      },
+      {
+        "question": "Why does a Gaussian cylinder not give the exact finite-rod field?",
+        "hint": "A finite rod does not have translational symmetry along its axis.",
+        "answer": "The field magnitude changes along a cylindrical side and has nonzero axial components near the ends. Gauss’s law still holds, but E cannot be pulled out of its surface integral as one constant. The direct line-charge integral is the exact route here.",
+        "rubric": "Distinguish validity of Gauss’s law from its usefulness for solving E."
+      }
+    ],
+    "final": "E=[kQ/(d√(d²+(L/2)²))]ŷ; long-wire limit 2kλ/d; far-field limit kQ/d².",
+    "shortcut": "The standard finite-rod formula is reusable after derivation. Gauss’s long-wire shortcut is only approximate when d≪L.",
+    "pitfall": "Using infinite limits produces an infinite-wire answer and loses the finite-length behavior.",
+    "variantOf": "frq-2"
+  },
+  {
+    "id": "frq-9",
+    "title": "Energy in a linearly changing field",
+    "unit": 9,
+    "source": "original",
+    "prompt": "Original practice: In a one-dimensional electrostatic region, Eₓ(x)=αx for x≥0, where α>0 has units N/(C·m). A charge +q moves from x=a to x=b with b>a≥0. Find ΔU and the work done by the field. Compare with the uniform-field shortcut.",
+    "steps": [
+      {
+        "question": "What force acts at position x?",
+        "hint": "Force is signed charge times electric field.",
+        "answer": "Fₓ(x)=qαx. It grows with x and points along +x, so using one fixed field value over the whole interval is generally invalid.",
+        "rubric": "Write the varying force and its direction."
+      },
+      {
+        "question": "What work integral should we use?",
+        "hint": "A tiny displacement dx contributes dW=Fₓ dx.",
+        "answer": "Wfield=∫aᵇqαx dx. The parameter α and charge q are constants; x is the integration variable.",
+        "rubric": "Set up the integral with correct bounds and integrand."
+      },
+      {
+        "question": "Evaluate the work.",
+        "hint": "∫x dx=x²/2.",
+        "answer": "Wfield=qα[x²/2]aᵇ=(qα/2)(b²−a²)>0. The field and displacement point the same way.",
+        "rubric": "Evaluate both endpoints and retain the factor 1/2."
+      },
+      {
+        "question": "What is the potential-energy change?",
+        "hint": "ΔU=−Wfield.",
+        "answer": "ΔU=−(qα/2)(b²−a²). Equivalently ΔV=−(α/2)(b²−a²), and multiplying by q gives ΔU.",
+        "rubric": "Use the negative sign and distinguish voltage from energy."
+      },
+      {
+        "question": "Can a graph give a simpler solution?",
+        "hint": "The area under a straight-line E-versus-x graph is a trapezoid.",
+        "answer": "The average field over this interval is [E(a)+E(b)]/2=α(a+b)/2. Then Wfield=q Eaverage(b−a)=qα(a+b)(b−a)/2, equal to qα(b²−a²)/2.",
+        "rubric": "Use the average field, not one endpoint field."
+      },
+      {
+        "question": "If the charge starts at speed vA and only the electric force does work, what is vB?",
+        "hint": "Apply ΔK=Wfield.",
+        "answer": "½m(vB²−vA²)=qα(b²−a²)/2, so vB=√[vA²+(qα/m)(b²−a²)]. Positive field work increases the speed.",
+        "rubric": "Connect integrated work to kinetic energy with consistent factors."
+      }
+    ],
+    "final": "ΔU=−qα(b²−a²)/2; Wfield=+qα(b²−a²)/2.",
+    "shortcut": "Use the trapezoidal area under E(x), or equivalently the average of the endpoint fields, because this field varies linearly.",
+    "pitfall": "W=qE(b)(b−a) overestimates the work. A variable field requires integration or a justified average.",
+    "variantOf": "frq-3"
+  },
+  {
+    "id": "frq-10",
+    "title": "Complete a charged square",
+    "unit": 9,
+    "source": "original",
+    "prompt": "Original practice: Three positive charges, each +Q, are fixed at three corners of a square of side a. Find the quasistatic external work to bring +q from infinity to the empty corner. Explain why the diagonal matters.",
+    "steps": [
+      {
+        "question": "What are the three final source-to-charge distances?",
+        "hint": "Two occupied corners share an edge with the empty corner.",
+        "answer": "Two source charges are distance a from the incoming charge. The opposite corner is distance √2a away by the Pythagorean theorem.",
+        "rubric": "Identify two edge distances and one diagonal distance."
+      },
+      {
+        "question": "Which energy terms change?",
+        "hint": "Existing charges do not move.",
+        "answer": "Only three new interaction terms involving q appear. The three interactions among the original Q charges remain unchanged, so they do not contribute to this work difference.",
+        "rubric": "Count the three new pairs and exclude unchanged pairs."
+      },
+      {
+        "question": "Write the external work as an integral.",
+        "hint": "For slow assembly, external work is minus electric-field work.",
+        "answer": "Wexternal=−q∫∞^P(E₁+E₂+E₃)·dl. By electrostatic superposition and path independence, each source gives −kQq∫∞^rfinal dr/r²=kQq/rfinal.",
+        "rubric": "Use a signed field-work integral and evaluate a generic source term."
+      },
+      {
+        "question": "Add the three evaluated contributions.",
+        "hint": "Use the two different distances correctly.",
+        "answer": "Wexternal=kQq/a+kQq/a+kQq/(√2a)=(kQq/a)(2+1/√2). All three terms are positive because all charges are positive.",
+        "rubric": "Obtain 2+1/√2 rather than 3 or 2+√2."
+      },
+      {
+        "question": "What is the potential shortcut?",
+        "hint": "Add scalar potentials from the sources.",
+        "answer": "V(P)=(kQ/a)(2+1/√2). Since V(∞)=0, Wexternal=qV(P). No vector components or force angles are needed to add potentials.",
+        "rubric": "Use scalar potential addition and multiply by q."
+      },
+      {
+        "question": "What happens if the incoming charge is instead −q?",
+        "hint": "The source potential is unchanged.",
+        "answer": "For an incoming charge −q with q>0, Wexternal=−(kQq/a)(2+1/√2). The field attracts the charge and does positive work; an external agent removes energy to keep the motion slow.",
+        "rubric": "Reverse the work sign while retaining the same source potential."
+      }
+    ],
+    "final": "Wexternal=(kQq/a)(2+1/√2).",
+    "shortcut": "Add source potentials at the empty corner, then multiply by the incoming charge.",
+    "pitfall": "Potential depends on 1/r, not 1/r². The diagonal source therefore contributes 1/√2 of an adjacent source’s potential.",
+    "variantOf": "frq-4"
+  },
+  {
+    "id": "frq-11",
+    "title": "A nonuniform solid sphere",
+    "unit": 9,
+    "source": "original",
+    "prompt": "Original practice: A nonconducting sphere of radius R has charge density ρ(s)=ρ₀(s/R)² for 0≤s≤R, with ρ₀>0. Find Vcenter−Vsurface in terms of ρ₀ and R, then express it in terms of total charge Q.",
+    "steps": [
+      {
+        "question": "How should the charge be divided into small pieces?",
+        "hint": "Spherical shells match the density symmetry.",
+        "answer": "At source radius s, a shell of thickness ds has volume dV=4πs² ds. Its charge is dq=ρ(s)dV=(4πρ₀/R²)s⁴ ds.",
+        "rubric": "Multiply density by shell volume, including s²."
+      },
+      {
+        "question": "Find the charge inside observation radius r.",
+        "hint": "The density changes, so do not use the edge density times the whole volume.",
+        "answer": "Qenc(r)=(4πρ₀/R²)∫₀ʳs⁴ ds=4πρ₀r⁵/(5R²). At r=R, total Q=4πρ₀R³/5.",
+        "rubric": "Integrate s⁴ and distinguish enclosed from total charge."
+      },
+      {
+        "question": "Derive the field inside with Gauss’s law.",
+        "hint": "A concentric Gaussian sphere has area 4πr².",
+        "answer": "E(r)4πr²=Qenc(r)/ε₀, so E(r)=ρ₀r³/(5ε₀R²) outward. The field now grows as r³ rather than r.",
+        "rubric": "Obtain the correct r³ dependence and constants."
+      },
+      {
+        "question": "Set up the potential difference.",
+        "hint": "Center-minus-surface equals the outward integral of E from 0 to R.",
+        "answer": "Vcenter−Vsurface=−∫R⁰E(r)dr=∫₀ᴿ[ρ₀r³/(5ε₀R²)]dr. The sign is positive for ρ₀>0.",
+        "rubric": "Use the correct ordering and the interior field."
+      },
+      {
+        "question": "Evaluate the voltage integral.",
+        "hint": "∫r³ dr=r⁴/4.",
+        "answer": "Vcenter−Vsurface=[ρ₀/(5ε₀R²)]·R⁴/4=ρ₀R²/(20ε₀). The denominator 4 comes from integrating r³.",
+        "rubric": "Evaluate to ρ₀R²/(20ε₀)."
+      },
+      {
+        "question": "Express the result in Q and compare with the uniform sphere.",
+        "hint": "Substitute ρ₀=5Q/(4πR³).",
+        "answer": "The difference is Q/(16πε₀R)=kQ/(4R). For the same Q and R, a uniform sphere gives kQ/(2R). This outward-weighted distribution produces less interior field and half the center-to-surface voltage difference.",
+        "rubric": "Obtain kQ/(4R) and explain the comparison at fixed Q,R."
+      }
+    ],
+    "final": "Vcenter−Vsurface=ρ₀R²/(20ε₀)=kQ/(4R).",
+    "shortcut": "After deriving E(r)=E(R)(r/R)³, use ∫₀ᴿ(r/R)³dr=R/4. The linear-field triangular-area shortcut no longer applies.",
+    "pitfall": "Using Qenc=ρ(r)·4πr³/3 is wrong for varying density; integrate the density first.",
+    "variantOf": "frq-5"
+  },
+  {
+    "id": "frq-12",
+    "title": "Spherical capacitor",
+    "unit": 10,
+    "source": "original",
+    "prompt": "Original practice: A conducting sphere of radius a carries +Q and is concentric with a conducting shell whose inner radius is b>a and charge is −Q. The gap is vacuum. Derive the gap field, Vinner−Vouter, and capacitance. What happens if both a and b are doubled?",
+    "steps": [
+      {
+        "question": "Which Gaussian surface should we choose?",
+        "hint": "Spherical symmetry suggests a sphere, not a cylinder.",
+        "answer": "Choose a concentric Gaussian sphere of radius r with a<r<b. It encloses +Q, and its field is radial with constant magnitude over area 4πr².",
+        "rubric": "Identify the spherical surface, area, and enclosed charge."
+      },
+      {
+        "question": "Find the gap field.",
+        "hint": "Apply flux equals enclosed charge divided by ε₀.",
+        "answer": "E(r)4πr²=Q/ε₀, hence E(r)=Q/(4πε₀r²)=kQ/r² outward.",
+        "rubric": "Derive the inverse-square field."
+      },
+      {
+        "question": "Set up the voltage integral.",
+        "hint": "The inner positive conductor is at higher potential.",
+        "answer": "Vinner−Vouter=−∫bᵃE(r)dr=∫aᵇkQ/r² dr. This compares the two conductor surfaces.",
+        "rubric": "Use correct bounds and the 1/r² integrand."
+      },
+      {
+        "question": "Evaluate the integral and solve for C.",
+        "hint": "∫r⁻²dr=−1/r, then use C=Q/V.",
+        "answer": "V=kQ(1/a−1/b)=kQ(b−a)/(ab). Therefore C=Q/V=4πε₀ab/(b−a). The result is positive because b>a.",
+        "rubric": "Give both voltage and capacitance with correct signs."
+      },
+      {
+        "question": "What happens when a and b both double?",
+        "hint": "Substitute into the geometric expression.",
+        "answer": "Cnew=4πε₀(2a)(2b)/(2b−2a)=2·4πε₀ab/(b−a)=2C. Doubling all lengths doubles capacitance, rather than quadrupling it.",
+        "rubric": "Demonstrate Cnew=2C algebraically."
+      },
+      {
+        "question": "What limits help check the formula?",
+        "hint": "Consider an outer conductor very far away, and then a very small gap.",
+        "answer": "As b→∞, C→4πε₀a, the isolated sphere result. If d=b−a≪a, then ab≈a², so C≈4πε₀a²/d=ε₀A/d with A≈4πa², matching a locally parallel-plate gap.",
+        "rubric": "Recover at least one limiting expression correctly."
+      }
+    ],
+    "final": "E(r)=kQ/r²; Vinner−Vouter=kQ(1/a−1/b); C=4πε₀ab/(b−a); doubling both radii doubles C.",
+    "shortcut": "Use the point-charge potential difference kQ(1/a−1/b) in the gap; it is the evaluated field integral.",
+    "pitfall": "The coaxial logarithm belongs to a 1/r field. A spherical gap has a 1/r² field and gives reciprocal radii instead.",
+    "variantOf": "frq-6"
+  }
+]

@@ -1,0 +1,390 @@
+[
+  {
+    "id": "lecture-15",
+    "page": 15,
+    "title": "Two charged spheres",
+    "prompt": "Two small spheres carry +1.5 nC and −2.0 nC and are 1.5 cm apart. Find the electric force between them.",
+    "steps": [
+      "Convert before calculating: q₁=1.5×10⁻⁹ C, q₂=−2.0×10⁻⁹ C, r=0.015 m. The prefix nano means 10⁻⁹, and 1 cm=0.01 m.",
+      "Use the magnitude form F=k|q₁q₂|/r². Taking the absolute value gives a positive magnitude; decide the direction separately.",
+      "F=(8.99×10⁹)(1.5×10⁻⁹)(2.0×10⁻⁹)/(0.015)²=1.20×10⁻⁴ N.",
+      "The signs are opposite, so the spheres attract. Each sphere feels the same force magnitude toward the other sphere."
+    ],
+    "answer": "1.2×10⁻⁴ N, attractive.",
+    "integration": "No extended charge distribution is present, so a charge integral is unnecessary. As an energy check, U(r)=kq₁q₂/r and the outward radial force is −dU/dr=kq₁q₂/r²<0: it points inward.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-17",
+    "page": 17,
+    "title": "Four corners cancel",
+    "prompt": "Four equal positive charges occupy the vertices of a square. Find the net force on a negative charge at the center.",
+    "steps": [
+      "The center has the same distance from each corner, so all four individual force magnitudes are equal.",
+      "The central negative charge is attracted toward each positive corner.",
+      "Pair each corner with the opposite corner. The force vectors in each pair have equal magnitudes and opposite directions.",
+      "Both pairs cancel, so the vector sum is zero. This does not mean the individual forces are zero."
+    ],
+    "answer": "Net force = 0 N.",
+    "integration": "Superposition is a sum of vectors: F=ΣFᵢ. Integration is the continuous version of this sum. Pairing equal opposite contributions is a symmetry method that also works inside many integrals.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-18",
+    "page": 18,
+    "title": "Remove two corners",
+    "prompt": "Only the two upper positive corner charges remain. The square side is 4.0 cm, each corner charge is +1.5 μC, and the central charge is −6.2 nC. Find its net force.",
+    "steps": [
+      "The distance from the center to either remaining corner is half the diagonal: r=a/√2=0.040/√2 m, so r²=0.000800 m².",
+      "Each attractive force has magnitude F₀=kQ|q|/r²=(8.99×10⁹)(1.5×10⁻⁶)(6.2×10⁻⁹)/0.000800=0.1045 N.",
+      "Horizontal components cancel. Both vertical components point upward, each with magnitude F₀ cos45°.",
+      "Fnet=2F₀ cos45°=√2F₀=0.148 N, toward the midpoint of the upper edge."
+    ],
+    "answer": "Approximately 0.15 N upward.",
+    "integration": "This is a two-term vector sum rather than an integral. For a continuous distribution along the top edge, the same projection step would become Eᵧ=∫k(dq/r²)cosθ. Always resolve directions before adding magnitudes.",
+    "unit": "8",
+    "note": "The slide still draws the removed lower charges and arrows. They must be omitted from the force calculation."
+  },
+  {
+    "id": "lecture-19",
+    "page": 19,
+    "title": "Charged pendulums",
+    "prompt": "Two pith balls of mass m and charge +q hang from strings of length L with small deflection angle θ. Find their equilibrium separation x.",
+    "steps": [
+      "Draw forces on one ball: weight mg downward, tension T along the string, and electric repulsion kq²/x² horizontally outward.",
+      "At equilibrium, T cosθ=mg and T sinθ=kq²/x². Divide to eliminate the unknown tension: tanθ=kq²/(mgx²).",
+      "Geometry gives sinθ=(x/2)/L=x/(2L). For θ small, tanθ≈sinθ.",
+      "Therefore x/(2L)≈kq²/(mgx²). Multiply by 2Lx² to obtain x³≈2kq²L/(mg), then take the cube root."
+    ],
+    "answer": "x≈[2kq²L/(mg)]^(1/3), valid when x≪2L.",
+    "integration": "An energy method reaches the same result. Each ball rises by h≈x²/(8L), so total gravitational energy is 2mgh≈mgx²/(4L). Add electric energy kq²/x. At stable equilibrium dU/dx=mgx/(2L)−kq²/x²=0, giving the same x³. Potential energy itself is obtained by integrating the relevant force with a minus sign.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-20",
+    "page": 20,
+    "title": "Force from a charged semicircle",
+    "prompt": "A uniformly charged nonconducting rod forms an upper semicircle of radius R and linear charge density λ. Find the force on +q at its center.",
+    "steps": [
+      "Let θ run from 0 to π around the upper arc. A small arc length is ds=R dθ, so its charge is dq=λR dθ.",
+      "Every piece is distance R from the center. Its field magnitude is dE=k dq/R²=(kλ/R)dθ.",
+      "For λ>0, the field at the center points away from each positive piece: dEₓ=−(kλ/R)cosθ dθ and dEᵧ=−(kλ/R)sinθ dθ.",
+      "Integrate: Eₓ=−(kλ/R)∫₀^π cosθ dθ=0, while Eᵧ=−(kλ/R)∫₀^π sinθ dθ=−2kλ/R.",
+      "Multiply the field by the center charge: Fᵧ=qEᵧ=−2kqλ/R. For positive λ the force points downward, toward the open side of the arc."
+    ],
+    "answer": "F=−(2kqλ/R) ŷ for the upper semicircle.",
+    "integration": "Integration is essential: dq=λR dθ, and the vector projection sinθ must stay inside the integral. Symmetry eliminates Eₓ but does not make all vertical components equal. The shortcut is to use the previously derived semicircle field E=2kλ/R and then F=qE.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-21",
+    "page": 21,
+    "title": "Force beyond the end of a rod",
+    "prompt": "A uniform rod has charge +Q and length L. A charge +q lies on its extension, distance r from the near end. Find the force.",
+    "steps": [
+      "Use x for distance along the rod measured from its near end, so 0≤x≤L. Then λ=Q/L and dq=λ dx.",
+      "The distance from the test charge to this small piece is r+x, not simply r. All force contributions point away from the rod.",
+      "Add the contributions: F=kqλ∫₀ᴸ dx/(r+x)².",
+      "The antiderivative is −1/(r+x). Thus F=kqλ[1/r−1/(r+L)]=kqQ/[r(r+L)].",
+      "For the pictured rod to the right of the charge, the force points left. If r≫L, r+L≈r and the result approaches the point-charge expression kqQ/r²."
+    ],
+    "answer": "F=kqQ/[r(r+L)], directed away from the rod.",
+    "integration": "The integration coordinate describes the source charge. Write dq=(Q/L)dx and the distance r+x before integrating. A potential-based route gives V(r)=k(Q/L)ln[(r+L)/r]; differentiating, E=−dV/dr=kQ/[r(r+L)] in the direction of increasing distance from the near end.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-22",
+    "page": 22,
+    "title": "Field beside a finite or long rod",
+    "prompt": "A uniform rod of length L and charge +Q has a test charge +q a perpendicular distance r from its midpoint. Find the force and the long-wire limit.",
+    "steps": [
+      "Choose x along the rod from −L/2 to +L/2, with the charge directly above x=0. Set λ=Q/L and dq=λ dx.",
+      "The separation is √(r²+x²). Horizontal components cancel between +x and −x, while perpendicular components add.",
+      "dEperp=(k dq/(r²+x²))·r/√(r²+x²)=kλr dx/(r²+x²)^(3/2).",
+      "Integrate using ∫dx/(r²+x²)^(3/2)=x/[r²√(r²+x²)]. This gives E=kQ/[r√(r²+(L/2)²)].",
+      "The force is qE, pointing away from the rod. If r≪L and the test charge is far from either end, √(r²+(L/2)²)≈L/2 and F≈2kQq/(Lr)=2kλq/r."
+    ],
+    "answer": "Exact midpoint result: F=kQq/[r√(r²+(L/2)²)]. Long-wire approximation: F≈2kλq/r.",
+    "integration": "The full integral is the safe method for finite rods. Gauss’s-law shortcut E=λ/(2πε₀r) assumes effectively infinite length, so it is only approximate for this finite rod.",
+    "unit": "8",
+    "note": "The slide says “long” but does not explicitly state r≪L. The exact finite-length result assumes the test charge is above the midpoint, as drawn."
+  },
+  {
+    "id": "lecture-47",
+    "page": 47,
+    "title": "A field pushes a charge",
+    "prompt": "A charge +3.0 nC is placed in an electric field of strength 400 N/C. Find the force.",
+    "steps": [
+      "Electric field means force per unit charge: E=F/q. Rearrange to F=qE.",
+      "Convert 3.0 nC to 3.0×10⁻⁹ C.",
+      "F=(3.0×10⁻⁹ C)(400 N/C)=1.2×10⁻⁶ N.",
+      "The charge is positive, so its force points in the direction of the electric field."
+    ],
+    "answer": "1.2×10⁻⁶ N in the field direction.",
+    "integration": "The field is already supplied, so there is no source-charge integral to perform. If this charge moves along the field through distance d, the work is ∫₀ᵈqE dx=qEd because qE is constant.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-48",
+    "page": 48,
+    "title": "A proton accelerates",
+    "prompt": "A proton starts from rest in a uniform 500 N/C field. Its mass is 1.67×10⁻²⁷ kg. Find its acceleration and its speed after 0.50 m.",
+    "steps": [
+      "A proton has positive charge e=1.60×10⁻¹⁹ C. The force is F=eE=8.00×10⁻¹⁷ N along the field.",
+      "Newton’s second law gives a=F/m=eE/m=4.79×10¹⁰ m/s². A uniform field makes this acceleration constant.",
+      "The elementary shortcut is v²=v₀²+2aΔx. With v₀=0 and Δx=0.50 m, v=√(2aΔx)=2.19×10⁵ m/s.",
+      "Check with energy: field work eEΔx=4.00×10⁻¹⁷ J equals the increase in kinetic energy ½mv²."
+    ],
+    "answer": "a≈4.8×10¹⁰ m/s²; v≈2.2×10⁵ m/s, both along the field.",
+    "integration": "From a=dv/dt and v=dx/dt, a=v dv/dx. Integrate m∫₀ᵛv dv=eE∫₀^0.50 dx. This gives ½mv²=eE(0.50), deriving the shortcut from a force integral.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-49",
+    "page": 49,
+    "title": "At the center of a dipole",
+    "prompt": "A dipole consists of +4.0 nC and −4.0 nC separated by 6.0 cm. Find the field strength at the midpoint.",
+    "steps": [
+      "The midpoint is 3.0 cm=0.030 m from each charge, not 6.0 cm.",
+      "The positive charge’s field points away from it. The negative charge’s field points toward it. Between these opposite charges, those directions agree.",
+      "Each contribution has magnitude E₀=kQ/r²=(8.99×10⁹)(4.0×10⁻⁹)/(0.030)²≈4.0×10⁴ N/C.",
+      "Add the vectors: E=2E₀≈8.0×10⁴ N/C, directed from positive to negative."
+    ],
+    "answer": "8.0×10⁴ N/C, from + toward −.",
+    "integration": "This is discrete superposition, E=Σkqᵢ(r−rᵢ)/|r−rᵢ|³. A continuous dipole distribution uses the identical vector kernel inside ∫dq. Notice that potential cancels at this midpoint, but electric field does not.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-50",
+    "page": 50,
+    "title": "Levitate a small object",
+    "prompt": "A 5 g object is 2 cm above a positively charged horizontal plate. The upward field there is 10⁶ N/C. What charge balances its weight?",
+    "steps": [
+      "Convert the mass: m=5 g=0.005 kg. The weight is mg=(0.005)(9.8)=0.049 N downward.",
+      "The field above the positive plate points upward. To make the electric force upward, the object must have positive charge.",
+      "For equilibrium, qE=mg. Therefore q=mg/E=0.049/10⁶=4.9×10⁻⁸ C.",
+      "The 2 cm height is not needed because the field at the object is already specified."
+    ],
+    "answer": "q=+4.9×10⁻⁸ C = +49 nC.",
+    "integration": "In a uniform upward field, integrating the net vertical force gives U(y)=mgy−qEy+constant. For no tendency to move up or down, dU/dy=mg−qE=0. This is neutral equilibrium in the ideal uniform-field approximation, not a restoring trap.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-54",
+    "page": 54,
+    "title": "Field of a semicircular rod",
+    "prompt": "A uniform upper semicircle has radius R and linear charge density λ. Find its electric field at the center C.",
+    "steps": [
+      "An angular slice dθ has length R dθ and charge dq=λR dθ. All slices are exactly distance R from C.",
+      "For positive λ, each slice produces field at C pointing inward from that slice. Reflecting pairs cancel the horizontal components.",
+      "The surviving component is dEᵧ=−k(dq/R²)sinθ=−(kλ/R)sinθ dθ.",
+      "Eᵧ=−(kλ/R)∫₀^πsinθ dθ=−2kλ/R. Reverse the direction if λ is negative."
+    ],
+    "answer": "E=−(2kλ/R) ŷ for an upper semicircle.",
+    "integration": "Do not use E=kQ/R² for the full arc: that incorrectly treats all vectors as parallel. The sum of magnitudes is kπλ/R, while the magnitude of the vector sum is 2kλ/R. This difference is the reason for component-by-component integration.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-55",
+    "page": 55,
+    "title": "Infinite wire: two methods",
+    "prompt": "Find the electric field a perpendicular distance d from an infinitely long wire with uniform linear charge density λ.",
+    "steps": [
+      "Integration setup: put the wire on the x-axis and the observation point at (0,d). A source element is dq=λ dx; its distance is √(x²+d²).",
+      "Fields from x and −x have canceling horizontal components. The perpendicular part is dE=kλd dx/(x²+d²)^(3/2).",
+      "E=kλd∫₋∞^∞dx/(x²+d²)^(3/2). The antiderivative is x/[d²√(x²+d²)]. At +∞ and −∞ it approaches +1/d² and −1/d².",
+      "Therefore E=2kλ/d=λ/(2πε₀d), radially outward for positive λ.",
+      "Gauss shortcut: use a coaxial cylinder of radius d and length ℓ. Side flux is E(2πdℓ), cap flux is zero, and enclosed charge is λℓ. Equating flux to λℓ/ε₀ gives the same result."
+    ],
+    "answer": "E=λ/(2πε₀d)=2kλ/d, radially outward for λ>0.",
+    "integration": "The integral exposes how distance and vector projection work. Gauss’s law is shorter only because an infinite uniform wire has cylindrical symmetry. The dummy Gaussian length ℓ cancels and is not the length of the infinite wire.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-65",
+    "page": 65,
+    "title": "Gauss’s law for a long wire",
+    "prompt": "Use Gauss’s law to find the field near the middle of a long uniform wire of total charge +Q and length L, neglecting end effects.",
+    "steps": [
+      "Define linear density λ=Q/L. Select a cylinder of radius r and length x coaxial with the wire, well away from its ends.",
+      "Under the long-wire approximation, E is radial and has the same magnitude everywhere on the curved surface. Its direction is parallel to the flat caps, so those caps have zero flux.",
+      "The flux integral reduces to E(2πrx). The enclosed charge is λx, not the full wire charge Q unless x=L.",
+      "Gauss’s law gives E(2πrx)=λx/ε₀, so E=λ/(2πε₀r)=Q/(2πε₀Lr)."
+    ],
+    "answer": "E≈Q/(2πε₀Lr), outward, with r much smaller than the distances to the wire ends.",
+    "integration": "The surface integral is ∮E·dA, split into the curved side and two caps. The same field follows from the line-charge integral in lecture page 55. For a finite rod near an end, cylindrical symmetry fails and E cannot be pulled out of this surface integral.",
+    "unit": "8",
+    "note": "A finite wire does not have exact cylindrical translational symmetry. The “long-wire” result is an approximation; the finite midpoint result is given with page 22."
+  },
+  {
+    "id": "lecture-66",
+    "page": 66,
+    "title": "Gauss’s law for a sheet",
+    "prompt": "A very large, thin rectangular sheet has uniform surface charge density +σ. Find the electric field, neglecting edges.",
+    "steps": [
+      "For an isolated symmetric sheet, the field points straight away from each face and has the same magnitude on both sides.",
+      "Draw a pillbox crossing the sheet, with cap area A. The curved side is parallel to E and contributes zero flux.",
+      "Both caps contribute +EA because the field and each outward normal point the same way. Total flux is 2EA.",
+      "The enclosed charge is σA, so 2EA=σA/ε₀. Cancel A to obtain E=σ/(2ε₀)."
+    ],
+    "answer": "E=σ/(2ε₀), perpendicular to and away from the sheet on either side.",
+    "integration": "Direct integration also works: divide the sheet into rings around the point below the observation location. dq=σ2πs ds, and the normal field is ∫₀^∞k(σ2πs ds)z/(s²+z²)^(3/2)=2πkσ=σ/(2ε₀). The ring radius s is integrated; the observation height z is held fixed.",
+    "unit": "8",
+    "note": "Here σ means the sheet’s total charge per projected area. For a conductor face, E just outside is σ_face/ε₀. An isolated thin metal sheet divides its total charge equally between two faces; confusing these definitions creates a factor-of-two error."
+  },
+  {
+    "id": "lecture-67",
+    "page": 67,
+    "title": "A sphere with density increasing outward",
+    "prompt": "A nonconducting sphere of radius R has volume charge density ρ(s)=ρ₀(s/R)². Find E inside and outside.",
+    "steps": [
+      "Use s as the source radius and r as the observation radius. A thin spherical shell has volume dV=4πs² ds.",
+      "Inside, only charge at s≤r is enclosed: Qenc(r)=∫₀ʳρ₀(s/R)²·4πs² ds=(4πρ₀/R²)∫₀ʳs⁴ ds=4πρ₀r⁵/(5R²).",
+      "Spherical symmetry gives ∮E·dA=E(r)4πr². Thus E(r)=Qenc/(4πε₀r²)=ρ₀r³/(5ε₀R²) for 0≤r≤R.",
+      "Total charge is Qtotal=4πρ₀R³/5. For r≥R, all of it is enclosed, so E(r)=ρ₀R³/(5ε₀r²).",
+      "For positive ρ₀ the field is radial outward. At r=R both expressions equal ρ₀R/(5ε₀), and E(0)=0."
+    ],
+    "answer": "Einside=ρ₀r³/(5ε₀R²); Eoutside=ρ₀R³/(5ε₀r²).",
+    "integration": "There are two distinct integrals: a volume integral ∫ρ dV finds charge, and a surface integral ∮E·dA relates that charge to field. Do not use Qenc=ρ(r)·(4πr³/3) here, because density is not constant throughout the enclosed volume.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-68",
+    "page": 68,
+    "title": "An empty conducting shell",
+    "prompt": "Show that the electric field inside an isolated charged hollow metal sphere is zero in electrostatic equilibrium, with no charge in its cavity.",
+    "steps": [
+      "Free charges in a conductor move when they experience an electric force. At electrostatic equilibrium they have stopped rearranging, so E=0 within the metal.",
+      "With an empty cavity and no external asymmetry, all excess charge lies on the spherical outer surface. A concentric Gaussian sphere lying in the cavity encloses zero charge.",
+      "Spherical symmetry lets us write E(4πr²)=Qenc/ε₀=0, which implies E=0 in the cavity too.",
+      "Zero enclosed charge alone is insufficient to infer zero field without symmetry or the conducting-boundary argument. If a charge is placed in the cavity, its cavity field is generally not zero."
+    ],
+    "answer": "E=0 in the metal and in the empty cavity.",
+    "integration": "Gauss’s integral is exactly zero: ∮E·dA=0. To conclude E=0 pointwise, additionally use symmetry. The formula printed underneath this slide’s question belongs to the preceding nonuniform insulating-sphere example, not to this conducting shell.",
+    "unit": "8",
+    "note": "Slide 68 contains a pasted nonuniform-sphere expression that is not the answer to its conducting-shell question."
+  },
+  {
+    "id": "lecture-69",
+    "page": 69,
+    "title": "Charge inside a neutral shell",
+    "prompt": "An insulated charge +q is placed in the cavity of an initially neutral hollow metal sphere. Describe the induced charges and fields.",
+    "steps": [
+      "The field within the metal must be zero at equilibrium. Choose a Gaussian surface entirely inside the metal and surrounding the cavity.",
+      "Because E=0 everywhere on this Gaussian surface, its flux is zero. Its enclosed charge is q+Qinner, so Gauss’s law gives Qinner=−q.",
+      "The shell started neutral and has no grounding connection, so Qinner+Qouter=0. Therefore Qouter=+q.",
+      "The cavity may have nonzero field; only the metal is required to have E=0. If the central charge is off-center, the inner surface charge is nonuniform."
+    ],
+    "answer": "Inner surface: −q. Outer surface: +q. E=0 in the conducting material.",
+    "integration": "Here the surface integral is useful even without a simple cavity field: zero E in the metal makes the flux integral zero directly. Integrating σ over the inner wall gives −q, but Gauss’s law determines that total without finding σ at every point.",
+    "unit": "8",
+    "note": "The slide’s phrase about “neutralizing charge” means canceling enclosed charge for a surface in the metal. The +q source is not physically neutralized or removed."
+  },
+  {
+    "id": "lecture-70",
+    "page": 70,
+    "title": "Concentric conducting spheres",
+    "prompt": "A solid conducting sphere of radius a carries +q. It is concentric with an initially neutral conducting shell with inner radius b and outer radius c. Find E in each region.",
+    "steps": [
+      "Charge +q lies uniformly on the solid sphere’s surface r=a. The neutral shell induces −q on r=b and +q on r=c.",
+      "For r<a, the point lies inside solid conducting material, so E=0.",
+      "For a<r<b, a spherical Gaussian surface encloses only +q. Thus E·4πr²=q/ε₀ and E=kq/r² outward.",
+      "For b<r<c, the point lies in shell metal and E=0. Equivalently the enclosed charges +q and −q cancel.",
+      "For r>c, the net enclosed charge is +q−q+q=+q, giving E=kq/r² outward."
+    ],
+    "answer": "E=0 for r<a; kq/r² for a<r<b; 0 for b<r<c; kq/r² for r>c.",
+    "integration": "First integrate the surface charge on each sphere to find the enclosed total; symmetry reduces each to its stated net charge. The flux integral then becomes E4πr². If finding potential later, integrate this piecewise field and retain continuity of V across each surface. E has jumps at the charged surfaces.",
+    "unit": "8"
+  },
+  {
+    "id": "lecture-76",
+    "page": 76,
+    "title": "Moving with a uniform field",
+    "prompt": "A positive charge +q moves a distance r from A to B in the direction of a uniform electric field E. Find its potential-energy change.",
+    "steps": [
+      "The force on +q is qE, in the same direction as the displacement.",
+      "The field therefore does positive work: Wfield=Fr=qEr.",
+      "Potential energy lost by the electric system is the energy given up as work: ΔU=−Wfield.",
+      "Thus ΔU=−qEr. If electric force is the only force doing work, kinetic energy rises by qEr."
+    ],
+    "answer": "ΔU=−qEr.",
+    "integration": "ΔU=−∫AᴮF·dl=−q∫₀ʳE dx=−qEr. The simple product appears because E is constant and parallel to every displacement element.",
+    "unit": "9"
+  },
+  {
+    "id": "lecture-77",
+    "page": 77,
+    "title": "Negative charge moving with the field",
+    "prompt": "Repeat page 76 for a charge −q, where q is a positive magnitude, moved distance r along a uniform field E.",
+    "steps": [
+      "The field still points from A toward B, but a negative charge feels force opposite to the field.",
+      "The force and displacement are opposite. Field work is therefore Wfield=−qEr.",
+      "Potential-energy change is minus field work, so ΔU=+qEr.",
+      "This motion is against the electric force. It requires an external push or initial kinetic energy; a negative charge released from rest would accelerate the other way."
+    ],
+    "answer": "ΔU=+qEr.",
+    "integration": "Insert the signed charge into the general expression: ΔU=−(−q)∫₀ʳE dx=+qEr. Do not change the field’s sign merely because the test charge is negative.",
+    "unit": "9"
+  },
+  {
+    "id": "lecture-78",
+    "page": 78,
+    "title": "An angled displacement",
+    "prompt": "A positive charge +q moves distance r at angle θ to a uniform electric field E. Find its potential-energy change.",
+    "steps": [
+      "Only displacement parallel to a force contributes to work. The component along E is r cosθ.",
+      "Field work is Wfield=qEr cosθ, so ΔU=−qEr cosθ.",
+      "Equivalently, split the motion into a perpendicular segment and a parallel segment. The perpendicular segment contributes zero work.",
+      "At θ=90°, ΔU=0. At θ=0°, potential energy falls by qEr; at θ=180°, it rises by qEr."
+    ],
+    "answer": "ΔU=−qEr cosθ.",
+    "integration": "With E along x, ΔU=−q∫AᴮE dx=−qE(xB−xA). Since xB−xA=r cosθ, this equals the dot-product formula. Any path with the same endpoints gives the same result in this electrostatic field.",
+    "unit": "9"
+  },
+  {
+    "id": "lecture-81",
+    "page": 81,
+    "title": "Moving in a point-charge field",
+    "prompt": "A positive charge +q moves from A to B in the field of a fixed +Q. Their distances from +Q are rA and rB. Find ΔU.",
+    "steps": [
+      "The radial electric field is E(r)=kQ/r² outward. Because it changes with r, a constant-field product EΔr is generally wrong.",
+      "Only the radial component of a displacement contributes to E·dl. Thus ΔU=−q∫rA^rB(kQ/r²)dr.",
+      "The antiderivative of r⁻² is −r⁻¹. Hence ΔU=−kQq[−1/r]rA^rB=kQq(1/rB−1/rA).",
+      "The diagram has rB>rA, so ΔU<0. The repulsive field does positive work as the positive charge moves farther away.",
+      "Shortcut: use U=kQq/r at the two endpoints and subtract UB−UA. A curved path changes neither endpoint energy."
+    ],
+    "answer": "ΔU=kQq(1/rB−1/rA).",
+    "integration": "The integral derives the endpoint formula and explains its minus sign. The source distance r, not total length along a curved route, is the variable in the radial integral.",
+    "unit": "9"
+  },
+  {
+    "id": "lecture-84",
+    "page": 84,
+    "title": "Attraction converts potential energy",
+    "prompt": "A fixed +2×10⁻⁶ C charge attracts a −1×10⁻⁸ C charge released from rest at rA=0.10 m. Find the moving charge’s kinetic energy at rB=0.010 m.",
+    "steps": [
+      "Use conservation of mechanical energy: KA+UA=KB+UB. Since KA=0, KB=UA−UB.",
+      "The product q₁q₂=−2×10⁻¹⁴ C² is negative. Thus UA=kq₁q₂/rA≈−0.00180 J and UB=kq₁q₂/rB≈−0.0180 J.",
+      "KB=(−0.00180)−(−0.0180)=0.0162 J, or about 0.016 J.",
+      "The potential energy becomes more negative as the unlike charges approach, while kinetic energy increases by the same amount. A negative U does not imply negative kinetic energy."
+    ],
+    "answer": "K≈0.016 J.",
+    "integration": "Work-energy gives KB=∫rA^rB(kq₁q₂/r²)dr=kq₁q₂(1/rA−1/rB). Both the radial force and radial displacement are inward, so the work is positive. This is the integral version of the energy shortcut.",
+    "unit": "9"
+  },
+  {
+    "id": "lecture-85",
+    "page": 85,
+    "title": "Assembling an equilateral triangle",
+    "prompt": "Two fixed positive charges q₁ and q₂ are already in place a distance s apart. Find the quasistatic external work to bring q₃ from infinity to the third vertex of their equilateral triangle.",
+    "steps": [
+      "The new vertex is distance s from each existing charge. Its potential due to those charges is V=kq₁/s+kq₂/s.",
+      "The incoming charge’s initial interaction energy at infinity is zero. Its final added energy is q₃V.",
+      "For a slow move with no change in kinetic energy, Wexternal=ΔU=kq₃(q₁+q₂)/s.",
+      "Do not add kq₁q₂/s: that interaction existed before q₃ arrived and does not change. If the question instead asked for work to assemble all three from infinity, then all three pair terms would be included."
+    ],
+    "answer": "Wexternal=kq₃(q₁+q₂)/s.",
+    "integration": "By superposition, Wexternal=−q₃∫∞^P(E₁+E₂)·dl. Each source contributes kqᵢq₃/s. The electrostatic field is conservative, so the integral can be evaluated using endpoint distances without choosing a difficult physical path.",
+    "unit": "9"
+  }
+]

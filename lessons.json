@@ -1,0 +1,1004 @@
+[
+  {
+    "id": "0.1",
+    "unit": 0,
+    "title": "Your first physics toolkit",
+    "subtitle": "Base camp · quantities, units, and force",
+    "goal": "Read a physical equation without treating it as a mysterious rule.",
+    "sections": [
+      {
+        "title": "A quantity is a number with a meaning",
+        "body": "A distance tells you how far apart things are. A mass measures inertia: how difficult it is to change motion. Charge is a property that determines electric interactions. Its unit is the coulomb (C). A negative charge is not a negative amount of matter; the sign distinguishes the two kinds of charge. Write every known value with its unit before calculating."
+      },
+      {
+        "title": "Small prefixes make a big difference",
+        "body": "1 cm = 10⁻² m; 1 mm = 10⁻³ m; 1 μC = 10⁻⁶ C; 1 nC = 10⁻⁹ C. Convert first, especially before squaring a distance. (2 cm)² = (0.02 m)² = 0.0004 m². Scientific notation makes these tiny quantities manageable."
+      },
+      {
+        "title": "What is a force?",
+        "body": "A force is a push or pull, measured in newtons (N). The net force is the vector sum of all pushes and pulls. Newton’s second law is ΣF = ma: an unbalanced force changes velocity. Zero net force means zero acceleration, not necessarily zero velocity. For vertical equilibrium, electric force may balance weight mg, with g ≈ 9.8 m/s²."
+      },
+      {
+        "title": "Energy is a different question",
+        "body": "Force asks how motion changes at a particular instant. Energy compares states before and after. Kinetic energy is K = ½mv². Work is energy transferred by a force during displacement. These ideas will let us solve motion without finding the travel time."
+      }
+    ],
+    "example": [
+      "A 2 g object has mass 0.002 kg.",
+      "Its weight is mg = 0.0196 N downward.",
+      "To suspend it, the total upward electric force must be 0.0196 N."
+    ],
+    "check": {
+      "q": "A particle travels at constant nonzero velocity. Its net force is…",
+      "options": [
+        "Zero",
+        "Along its velocity",
+        "Always opposite its velocity"
+      ],
+      "answer": 0,
+      "why": "Constant velocity means acceleration is zero, so ΣF = ma = 0."
+    },
+    "lab": null,
+    "source": null
+  },
+  {
+    "id": "0.2",
+    "unit": 0,
+    "title": "Arrows before algebra",
+    "subtitle": "Base camp · vectors and components",
+    "goal": "Add directions correctly before doing any integration.",
+    "sections": [
+      {
+        "title": "Scalars and vectors",
+        "body": "A scalar has a signed value but no spatial direction: charge, energy, and potential are examples. A vector has both size and direction: force and electric field. Two equal fields pointing opposite ways cancel. Two equal positive potentials add. This distinction is one of the most useful habits in the course."
+      },
+      {
+        "title": "Split a vector into two simpler arrows",
+        "body": "Choose x to the right and y upward. An arrow of length E at angle θ counterclockwise from +x has Eₓ = E cos θ and Eᵧ = E sin θ. Signs follow the actual direction. If the angle is measured from the vertical, the roles of sine and cosine switch. Draw a right triangle instead of memorizing which function to use."
+      },
+      {
+        "title": "Add components, then rebuild",
+        "body": "Find ΣEₓ and ΣEᵧ separately. The magnitude is √[(ΣEₓ)²+(ΣEᵧ)²]. Direction comes from the signs and arctan, or atan2(Eᵧ,Eₓ). Symmetry often cancels one component before any calculation. Never add the magnitudes of arrows that point in different directions."
+      },
+      {
+        "title": "Dot products measure alignment",
+        "body": "E · Δr = E Δr cos θ. A displacement perpendicular to E contributes no electric work. The same idea will appear in flux: E · A uses the direction normal to a surface. The angle in a dot product is between the two vectors, not between an arrow and the surface itself."
+      }
+    ],
+    "example": [
+      "Two fields have components (3,4) and (−3,4) N/C.",
+      "Horizontal components cancel; vertical components add.",
+      "The result is (0,8) N/C, straight upward."
+    ],
+    "check": {
+      "q": "Two perpendicular fields each have magnitude E. Their resultant magnitude is…",
+      "options": [
+        "2E",
+        "0",
+        "√2 E"
+      ],
+      "answer": 2,
+      "why": "Pythagoras gives √(E²+E²), because the vectors are perpendicular."
+    },
+    "lab": "field",
+    "source": null
+  },
+  {
+    "id": "0.3",
+    "unit": 0,
+    "title": "An integral is a careful sum",
+    "subtitle": "Base camp · the central skill",
+    "goal": "Explain what the integration variable, small element, and bounds mean.",
+    "sections": [
+      {
+        "title": "Start with ordinary addition",
+        "body": "Suppose a thin charged rod is cut into N little pieces. Each piece creates a field at your observation point. Add the fields of all pieces. With more pieces, the approximation improves. Integration is the limit of this sum as the pieces become arbitrarily small; it does not introduce a new force law."
+      },
+      {
+        "title": "Translate a physical piece into dq",
+        "body": "For a line with linear density λ in C/m, a little length dx has dq = λ(x) dx. For a surface, dq = σ dA. For a volume, dq = ρ dV. Uniform means the density is constant, not that every source piece is equally far from the observation point. On a circle, the little length is R dθ; in spherical shells, dV = 4πr² dr."
+      },
+      {
+        "title": "The six decisions",
+        "body": "1. Draw source and observation point. 2. Pick a coordinate along the source. 3. Write dq in that coordinate. 4. Write distance and direction from the piece to the observation point. 5. Form the needed component dE = k dq/r² times its projection factor, or dV = k dq/r. 6. Integrate over the source bounds, then check units and limits. A dummy variable such as x′ prevents confusing the source position with the observation coordinate."
+      },
+      {
+        "title": "A miniature integration lesson",
+        "body": "∫ₐᵇ xⁿ dx = [xⁿ⁺¹/(n+1)]ₐᵇ for n ≠ −1. The bracket means upper value minus lower value. ∫ₐᵇ dx/x = ln(b/a) for positive bounds. For example ∫₁² x dx = [x²/2]₁² = 1.5. The dx says which variable changes; it is not an extra number to substitute at the end."
+      },
+      {
+        "title": "Do a physical check",
+        "body": "Your result should have the correct units. Doubling source charge should double field and potential. Very far from a finite charged object, E should approach kQ/r². Cancellation must match symmetry. A negative component indicates direction; it does not make the field magnitude negative."
+      }
+    ],
+    "example": [
+      "Let λ(x) = αx on 0 ≤ x ≤ L, where α has units C/m².",
+      "dq = αx dx, so Q = ∫₀ᴸ αx dx.",
+      "Q = αL²/2. Using λ(L)L would overcount, because most of the rod has lower density."
+    ],
+    "check": {
+      "q": "A ring of radius R has uniform λ. Which is dq for a tiny angle dθ?",
+      "options": [
+        "λ dθ",
+        "λR dθ",
+        "λR² dθ"
+      ],
+      "answer": 1,
+      "why": "An arc has length R dθ, so charge is density × length."
+    },
+    "lab": "integral",
+    "source": null
+  },
+  {
+    "id": "0.4",
+    "unit": 0,
+    "title": "From motion to work",
+    "subtitle": "Base camp · a mechanics bridge",
+    "goal": "Use work and energy before studying electric potential.",
+    "sections": [
+      {
+        "title": "Acceleration and velocity",
+        "body": "Velocity is the rate of position change, v = dx/dt. Acceleration is the rate of velocity change, a = dv/dt. In a constant field, a charged particle has constant acceleration a = qE/m. For constant acceleration, v² = v₀² + 2aΔx. Choose signed components consistently."
+      },
+      {
+        "title": "Why work contains an integral",
+        "body": "During a tiny displacement dx, a force component Fₓ transfers dW = Fₓ dx. Over a path W = ∫ F · dr. If force is constant and parallel to displacement, W = Fd. If it changes, use the area under its force-position graph; equal areas mean equal work."
+      },
+      {
+        "title": "The work-energy theorem",
+        "body": "Net work equals ΔK = Kf − Ki. With only a conservative electric force, Wfield = −ΔU and K + U is constant. External work is ΔU only for a quasistatic move with no kinetic-energy change and no other energy transfers. Write who does the work; a missing subscript can reverse your answer."
+      },
+      {
+        "title": "Why this is useful",
+        "body": "To find a particle’s final speed in an electric field, energy is often simpler than a time-dependent trajectory. To find its direction or initial acceleration, force is often simpler. Integration can connect the two descriptions."
+      }
+    ],
+    "example": [
+      "A 2 kg object starts at rest; Fₓ = 3x N when x is in metres.",
+      "W = ∫₀² 3x dx = 6 J.",
+      "½(2)v² = 6, so v = √6 m/s."
+    ],
+    "check": {
+      "q": "A conservative electric field does +5 J of work. The change in electric potential energy is…",
+      "options": [
+        "+5 J",
+        "−5 J",
+        "0 J"
+      ],
+      "answer": 1,
+      "why": "Wfield = −ΔU. Energy transferred into motion comes from the potential-energy store."
+    },
+    "lab": null,
+    "source": null
+  },
+  {
+    "id": "8.1",
+    "unit": 8,
+    "title": "The charge meadow",
+    "subtitle": "Electric charge & Coulomb’s law",
+    "goal": "Predict the direction and strength of electric forces.",
+    "sections": [
+      {
+        "title": "Charge belongs to particles",
+        "body": "Electrons carry −e, protons +e, where e = 1.602 × 10⁻¹⁹ C. In ordinary charging of solids, electrons move between objects; protons remain bound in nuclei. Losing electrons makes an object positive. A neutral object has equal total positive and negative charge, not an absence of charged particles."
+      },
+      {
+        "title": "Coulomb’s law",
+        "body": "For two point charges separated by r, the force magnitude is F = k|q₁q₂|/r², where k = 1/(4πε₀) ≈ 8.99 × 10⁹ N·m²/C². Like signs repel; opposite signs attract. Draw the force direction first and use the magnitude formula second. Each charge experiences an equal and opposite force even if the charges or masses differ."
+      },
+      {
+        "title": "Scaling and superposition",
+        "body": "Double one charge: double F. Double distance: divide F by four. With several sources, add the force vectors from each independently. The presence of a third fixed point charge does not change the pairwise force between the first two, but it changes each net force."
+      },
+      {
+        "title": "Gravity and electricity",
+        "body": "Gravity between ordinary masses is attractive. Electric forces can attract or repel. Both point-source laws have inverse-square distance dependence. Electric equilibrium can involve gravity, tension, and electric force together; include all of them in a free-body diagram."
+      }
+    ],
+    "example": [
+      "Take q₁ = +1.5 nC, q₂ = −2.0 nC, r = 1.5 cm.",
+      "F = (8.99×10⁹)(1.5×10⁻⁹)(2.0×10⁻⁹)/(0.015)² = 1.20×10⁻⁴ N.",
+      "The force is attractive. Each sphere feels this same magnitude toward the other."
+    ],
+    "check": {
+      "q": "If both charges double and their separation doubles, F becomes…",
+      "options": [
+        "F",
+        "2F",
+        "4F"
+      ],
+      "answer": 0,
+      "why": "The numerator grows by 4 and the denominator grows by 4."
+    },
+    "lab": "field",
+    "source": "8.3"
+  },
+  {
+    "id": "8.2",
+    "unit": 8,
+    "title": "The electron ferry",
+    "subtitle": "Conservation, contact & induction",
+    "goal": "Track where electrons move and whether net charge changes.",
+    "sections": [
+      {
+        "title": "The charge ledger",
+        "body": "For an isolated system, total charge is conserved. Rubbing transfers electrons; it does not manufacture charge. If two initially neutral objects are rubbed and one ends at −5 nC, the other ends at +5 nC. Polarization rearranges positive and negative charge within an object without necessarily changing its net charge."
+      },
+      {
+        "title": "Conductors versus insulators",
+        "body": "In a metal, mobile electrons can redistribute throughout the conductor. In an insulator, charge motion is restricted, but small shifts of bound charges can polarize it. A charged balloon can attract a neutral wall because the opposite induced charges are slightly closer than the like charges."
+      },
+      {
+        "title": "Contact between spheres",
+        "body": "Identical conducting spheres, far from external influences, share their combined charge equally after contact: each gets (Q₁+Q₂)/2. For unequal spheres, equilibrium means equal potential, not generally equal charge. Always update your charge ledger after each contact before the next one."
+      },
+      {
+        "title": "Induction is a sequence",
+        "body": "To leave a conductor negative using a positive rod: bring rod near → ground conductor → disconnect ground while rod remains → remove rod. Electrons enter from Earth because the rod attracts them. Disconnecting ground traps excess electrons. Removing the rod first lets charge return through ground, leaving the conductor neutral."
+      },
+      {
+        "title": "Ground does not mean zero charge",
+        "body": "Ground holds a conductor near Earth’s reference potential, V = 0. In the presence of a nearby charge it can have nonzero net charge. It exchanges charge with Earth; your isolated-system boundary must include Earth if you want total charge conserved."
+      }
+    ],
+    "example": [
+      "Start with three identical spheres: (Q,0,0).",
+      "Touch 1–2: (Q/2,Q/2,0). Touch 2–3: (Q/2,Q/4,Q/4).",
+      "Touch 3–1: (3Q/8,Q/4,3Q/8). Total stays Q."
+    ],
+    "check": {
+      "q": "During induction with a positive rod, which particles enter the grounded metal?",
+      "options": [
+        "Protons",
+        "Electrons",
+        "Neutrons"
+      ],
+      "answer": 1,
+      "why": "Mobile electrons flow from Earth toward the nearby positive rod."
+    },
+    "lab": "induction",
+    "source": "8.2"
+  },
+  {
+    "id": "8.3",
+    "unit": 8,
+    "title": "See the invisible field",
+    "subtitle": "Fields, test charges & superposition",
+    "goal": "Separate the source field from the force on a test charge.",
+    "sections": [
+      {
+        "title": "A field is a map of possible force",
+        "body": "E = F/q describes the electric force per unit positive test charge. The field exists whether or not you place a test particle there. Its units are N/C, also V/m. A test charge is small enough not to significantly rearrange the sources."
+      },
+      {
+        "title": "A point source",
+        "body": "A point charge Q creates E = kQ r̂/r², where r̂ points from source to observation point. For positive Q, arrows point away. For negative Q, toward. The force on a particle is F = qE: a negative particle feels force opposite to E. Changing the test charge changes force, not the source field."
+      },
+      {
+        "title": "Read the map",
+        "body": "Field-line tangents show field direction; closer lines represent stronger field in a consistently drawn diagram. Lines do not cross, because one location cannot have two distinct field directions. A field line is not generally the trajectory of a moving particle; velocity and inertia matter."
+      },
+      {
+        "title": "Superposition",
+        "body": "At the midpoint between equal positive charges, their fields cancel. Between equal opposite charges, both fields point from + to − and add. Write one arrow per source before adding components. At a zero-field point the potential need not be zero."
+      },
+      {
+        "title": "Connect to motion",
+        "body": "For a free particle, a = qE/m. A proton released in a uniform field accelerates with the field. An electron accelerates against it. If gravity or other forces also act, use the net force instead of qE alone."
+      }
+    ],
+    "example": [
+      "A dipole has ±4.0 nC separated by 6.0 cm.",
+      "The midpoint is 0.030 m from each charge. Each field is 8.99×10⁹×4.0×10⁻⁹/(0.030)² = 4.00×10⁴ N/C.",
+      "They point in the same direction, from + to −. Total ≈ 8.0×10⁴ N/C."
+    ],
+    "check": {
+      "q": "At a point E points right. An electron released there initially accelerates…",
+      "options": [
+        "Right",
+        "Left",
+        "Nowhere"
+      ],
+      "answer": 1,
+      "why": "The electron has negative q, so qE points left."
+    },
+    "lab": "field",
+    "source": "8.3"
+  },
+  {
+    "id": "8.4a",
+    "unit": 8,
+    "title": "Build a field from slices",
+    "subtitle": "Integration · rods and arcs",
+    "goal": "Derive a field instead of guessing an effective point charge.",
+    "sections": [
+      {
+        "title": "The rod on its axis",
+        "body": "Let a rod occupy x = 0 to L and an observation point lie at x = −a. With λ = Q/L, a slice has dq = λ dx and distance a+x. Every contribution points left for Q > 0. The magnitude is E = kλ∫₀ᴸ dx/(a+x)² = kλ[1/a − 1/(a+L)] = kQ/[a(a+L)]."
+      },
+      {
+        "title": "Why Q at the centre is only an approximation",
+        "body": "The nearer slices contribute more strongly because of 1/r². Replacing all Q by a point at the centre is accurate only far away compared with L. Check a ≫ L: E ≈ kQ/a². Close to the rod the shortcut fails."
+      },
+      {
+        "title": "A semicircle at its centre",
+        "body": "Put a uniformly positive semicircle in the upper half-plane, 0 ≤ θ ≤ π. A piece has dq = λR dθ and distance R. Its field points away from that positive piece, toward the centre: dEₓ = −(kλ/R)cosθ dθ and dEᵧ = −(kλ/R)sinθ dθ. Integrating gives Eₓ = 0 and Eᵧ = −2kλ/R. The field points toward the open half."
+      },
+      {
+        "title": "What symmetry saves",
+        "body": "Symmetry cancels the semicircle’s horizontal components but does not give the vertical magnitude. Integration supplies it. The shortcut is to integrate only one component and double a quarter-circle contribution. If λ changes with θ, recheck symmetry before canceling anything."
+      }
+    ],
+    "example": [
+      "For a semicircle with total Q, λ = Q/(πR).",
+      "E = 2kλ/R = 2kQ/(πR²), directed toward the open side for Q > 0.",
+      "A positive central particle q feels F = qE; a negative one feels the opposite force."
+    ],
+    "check": {
+      "q": "Why can’t the magnitudes of all dE contributions on the semicircle simply be added?",
+      "options": [
+        "The source has no charge",
+        "Their directions differ",
+        "Integration never works on curves"
+      ],
+      "answer": 1,
+      "why": "Add components. Only the projected contributions along the symmetry axis reinforce."
+    },
+    "lab": "integral",
+    "source": null
+  },
+  {
+    "id": "8.4b",
+    "unit": 8,
+    "title": "The wire and the ring",
+    "subtitle": "Integration · projection and symmetry",
+    "goal": "Recognize when distance varies and when only direction varies.",
+    "sections": [
+      {
+        "title": "Infinite wire by Coulomb integration",
+        "body": "Place the wire on the y-axis, observation point at (d,0), and dq = λ dy. Source distance is √(d²+y²). Vertical components cancel. The horizontal projection factor is d/√(d²+y²). Therefore Eₓ = kλ∫₋∞^∞ d dy/(d²+y²)³ᐟ² = 2kλ/d. The denominator power 3/2 comes from distance squared AND projection."
+      },
+      {
+        "title": "Evaluate the wire integral",
+        "body": "An antiderivative of d/(d²+y²)³ᐟ² is y/[d√(d²+y²)]. At +∞ it tends to 1/d; at −∞ it tends to −1/d. Subtract to obtain 2/d. For a finite centred rod of length L, the same limits −L/2 to L/2 give E = kλL/[d√(d²+(L/2)²)]."
+      },
+      {
+        "title": "A ring on its axis",
+        "body": "A ring of radius R has total charge Q. At axial distance z, every source element is √(R²+z²) away. Sideways components cancel. dE_z = k z dq/(R²+z²)³ᐟ², so E_z = kQz/(R²+z²)³ᐟ². Integrating dq simply gives Q because the geometry factor is constant around the ring."
+      },
+      {
+        "title": "Limits are part of the solution",
+        "body": "At z = 0 a complete ring gives E = 0 by symmetry. Far away it resembles a point charge. A wire gives 1/d, unlike the 1/r² of a point source, because additional distant wire segments contribute as the observation distance grows. Gauss’s law will derive the infinite-wire result more quickly."
+      }
+    ],
+    "example": [
+      "Take λ = 2.0 nC/m and d = 0.10 m for a very long wire.",
+      "E = 2kλ/d ≈ 360 N/C away from the wire.",
+      "If d doubles, E halves. The infinite-wire approximation requires distances small compared with the length and being far from its ends."
+    ],
+    "check": {
+      "q": "On the axis of a uniformly charged ring, which components cancel?",
+      "options": [
+        "Axial components",
+        "Components perpendicular to the axis",
+        "All components at every z"
+      ],
+      "answer": 1,
+      "why": "Pairs of opposite ring elements cancel sideways components while axial components reinforce."
+    },
+    "lab": "integral",
+    "source": null
+  },
+  {
+    "id": "8.5",
+    "unit": 8,
+    "title": "The flux gate",
+    "subtitle": "Electric flux · surface integrals",
+    "goal": "Distinguish a strong field from large net flux.",
+    "sections": [
+      {
+        "title": "Count the field crossing a surface",
+        "body": "For a flat surface in a uniform field, Φ = EA cosθ. Here θ is the angle between E and the normal vector perpendicular to the surface. Maximum positive flux occurs when E follows the normal. If the field lies in the plane, flux is zero even though E can be large."
+      },
+      {
+        "title": "What the integral adds",
+        "body": "For nonuniform E or a curved surface, cut it into tiny patches: dΦ = E · n̂ dA. Add them: Φ = ∫ E · dA. Both the local field and local normal can change. For a closed surface, outward flux is positive and inward flux is negative. The closed-loop integral symbol ∮ reminds you to include every face."
+      },
+      {
+        "title": "A varying-field example",
+        "body": "For a rectangle in the yz-plane with normal +x, 0 ≤ y ≤ L and width w, let Eₓ = ay. A strip has dA = w dy. Φ = ∫₀ᴸ ay w dy = awL²/2. Shortcut: because the field varies linearly, its average is aL/2, giving the same average-field × area result."
+      },
+      {
+        "title": "An open surface is not a Gaussian surface",
+        "body": "Gauss’s law relates the total flux of a closed surface to enclosed charge. One flat sheet is not closed. On a cube in a uniform field, one face’s outward flux cancels the opposite face’s inward flux; the total is zero, not six times EA."
+      }
+    ],
+    "example": [
+      "E = 200 N/C crosses A = 0.03 m² at 60° to the normal.",
+      "Φ = 200×0.03×cos60° = 3 N·m²/C.",
+      "If the stated 60° had been to the plane, the normal angle would be 30°."
+    ],
+    "check": {
+      "q": "A closed cube in a uniform electric field encloses no charge. Its total flux is…",
+      "options": [
+        "Positive",
+        "Zero",
+        "Negative"
+      ],
+      "answer": 1,
+      "why": "Equal field enters and exits; the signed flux cancels."
+    },
+    "lab": "flux",
+    "source": "8.5"
+  },
+  {
+    "id": "8.6a",
+    "unit": 8,
+    "title": "The symmetry observatory",
+    "subtitle": "Gauss’s law · choosing a surface",
+    "goal": "Know when Gauss’s law finds E, and when it only finds flux.",
+    "sections": [
+      {
+        "title": "The law",
+        "body": "∮ E · dA = Qenclosed/ε₀. It is true for any closed surface in electrostatics. External charges can contribute to E at the surface, but their net flux through the whole closed surface is zero. Only enclosed charge determines total flux."
+      },
+      {
+        "title": "The symmetry requirement",
+        "body": "To extract E from the integral you must know its direction and constancy on relevant portions of the surface. Spherical symmetry suggests a sphere; an infinitely long uniform wire suggests a coaxial cylinder; an infinite sheet suggests a pillbox. Gauss’s law is always valid, but it does not by itself determine E for an arbitrary finite rod or ring."
+      },
+      {
+        "title": "Sphere and wire",
+        "body": "For spherical symmetry, E(4πr²) = Qenc/ε₀. For a long wire, E(2πrℓ) = λℓ/ε₀: the end caps have zero flux because E is parallel to them. Thus E = λ/(2πε₀r), agreeing with direct Coulomb integration. The Gaussian length ℓ cancels."
+      },
+      {
+        "title": "Sheet and conductor surface",
+        "body": "For a nonconducting infinite sheet with density σ, a pillbox has two equal contributing faces: 2EA = σA/ε₀, so E = σ/(2ε₀). Just outside a conductor at electrostatic equilibrium, Einside = 0; only the outer pillbox face contributes, giving Eout = σ/ε₀. These formulas refer to different geometries."
+      },
+      {
+        "title": "Zero flux is not zero field",
+        "body": "Qenc = 0 gives zero NET flux. A uniform field through an empty box still exists. To conclude E = 0 from zero flux, additional symmetry or conductor equilibrium arguments are needed."
+      }
+    ],
+    "example": [
+      "A sphere encloses Q = 3 nC. Its flux is Q/ε₀ ≈ 339 N·m²/C.",
+      "Double the Gaussian radius: total flux stays 339.",
+      "For a central point charge, E falls by 4 while surface area grows by 4."
+    ],
+    "check": {
+      "q": "Which is sufficient to pull one value E outside the entire spherical flux integral?",
+      "options": [
+        "The surface is spherical",
+        "The charge distribution has spherical symmetry about its centre",
+        "The net charge is zero"
+      ],
+      "answer": 1,
+      "why": "A spherical Gaussian surface alone does not make an asymmetric field constant on it."
+    },
+    "lab": "gauss",
+    "source": "8.6"
+  },
+  {
+    "id": "8.6b",
+    "unit": 8,
+    "title": "Inside the charged planet",
+    "subtitle": "Gauss + integration · nonuniform density",
+    "goal": "Integrate enclosed charge before applying Gauss’s law.",
+    "sections": [
+      {
+        "title": "Uniform insulating sphere",
+        "body": "A solid nonconducting sphere of radius R contains uniform density ρ. For r < R, Qenc = ρ(4πr³/3). Gauss then gives E = ρr/(3ε₀) = kQr/R³. Outside, E = kQ/r². The field rises linearly inside and falls outside. This is not the conductor result."
+      },
+      {
+        "title": "Changing density",
+        "body": "Suppose ρ(s) = ρ₀(s/R)². Use s for the source-shell radius and r for the observation radius. A thin shell has volume 4πs² ds, so dq = (4πρ₀/R²)s⁴ ds. Inside, Qenc(r) = ∫₀ʳ dq = 4πρ₀r⁵/(5R²). Then E(r) = ρ₀r³/(5ε₀R²)."
+      },
+      {
+        "title": "Outside means all charge is enclosed",
+        "body": "At r ≥ R, Qenc is fixed at 4πρ₀R³/5. Hence E(r) = ρ₀R³/(5ε₀r²). Do not keep increasing the integration limit beyond the material’s outer radius. The electric field is continuous at R for this volume distribution without a separate surface-charge sheet."
+      },
+      {
+        "title": "General pattern",
+        "body": "For ρ(s) = αsⁿ with n > −3, integrate 4παsⁿ⁺² ds. Inside E = αrⁿ⁺¹/[ε₀(n+3)]. This pattern is useful for checking algebra, but always show dq, bounds, Qenc, and Gauss’s law in an FRQ."
+      },
+      {
+        "title": "Physical assumptions",
+        "body": "The density here is a prescribed charge distribution in an insulator. A conductor with freely moving excess charge cannot maintain such a static bulk distribution; it moves to surfaces in electrostatic equilibrium."
+      }
+    ],
+    "example": [
+      "Uniform density: Qenc scales as r³, surface area as r².",
+      "Therefore E scales as r inside, without any long algebra.",
+      "For density proportional to r², Qenc scales as r⁵, so E scales as r³."
+    ],
+    "check": {
+      "q": "For ρ(s) = αs², what is the shell charge dq?",
+      "options": [
+        "αs² ds",
+        "4παs⁴ ds",
+        "4παs² ds"
+      ],
+      "answer": 1,
+      "why": "Multiply density αs² by spherical shell volume 4πs² ds."
+    },
+    "lab": "gauss",
+    "source": "8.6"
+  },
+  {
+    "id": "9.1",
+    "unit": 9,
+    "title": "The energy landscape",
+    "subtitle": "Electric potential energy & work",
+    "goal": "Keep work, energy change, and charge signs consistent.",
+    "sections": [
+      {
+        "title": "A system stores potential energy",
+        "body": "Two point charges separated by r have U = kq₁q₂/r when U = 0 at infinite separation. Same signs give positive U; opposite signs give negative U. A negative value means energy must be supplied to separate an attractive pair to infinity. It does not mean the system is impossible."
+      },
+      {
+        "title": "Derive U from force",
+        "body": "Moving charge q slowly in the radial field of Q requires Fext,r = −kQq/r². Therefore ΔU = ∫ᵣᵢʳᶠ Fext,r dr = kQq(1/rf − 1/ri). The electric field does the opposite work: Wfield = −ΔU. The dot product handles inward displacement with negative dr."
+      },
+      {
+        "title": "Several charges",
+        "body": "Add each distinct pair once: U = Σᵢ<ⱼ kqᵢqⱼ/rᵢⱼ. For three charges, there are three pairs, not six. Bringing in a new charge adds only its interactions with the charges already present. Do not count the pre-existing pair energy as new work."
+      },
+      {
+        "title": "Uniform fields",
+        "body": "If E is constant, ΔU = −qE · Δr. A positive charge moving with E loses potential energy. A negative charge moving with E gains it. A perpendicular displacement makes no electric potential-energy change, though other forces may still do work."
+      }
+    ],
+    "example": [
+      "Charges q₁ and q₂ are already fixed a distance s apart. Bring q₃ from infinity to complete an equilateral triangle.",
+      "Only two new pairs appear: (1,3) and (2,3).",
+      "Wext = ΔU = kq₃(q₁+q₂)/s for a slow move."
+    ],
+    "check": {
+      "q": "Two positive charges move closer. Their electric potential energy…",
+      "options": [
+        "Increases",
+        "Decreases",
+        "Stays constant"
+      ],
+      "answer": 0,
+      "why": "U = kq₁q₂/r increases as positive r decreases."
+    },
+    "lab": null,
+    "source": "9.1"
+  },
+  {
+    "id": "9.2a",
+    "unit": 9,
+    "title": "Potential is energy per charge",
+    "subtitle": "Potential, reference levels & scalar addition",
+    "goal": "Distinguish V from U and from electric field.",
+    "sections": [
+      {
+        "title": "One landscape, different visitors",
+        "body": "Electric potential V is potential energy per unit charge: U = qV for a test charge in an external potential. Its unit is the volt, 1 V = 1 J/C. Sources determine V. A negative visitor has U with the opposite sign to V. Potential difference is meaningful without needing an absolute zero."
+      },
+      {
+        "title": "Point charges and sums",
+        "body": "With V∞ = 0, a point charge gives V = kQ/r. Several point sources give V = ΣkQᵢ/rᵢ, a scalar sum with charge signs. Do not resolve V into x and y components. A location can have V = 0 but E ≠ 0, or E = 0 but V ≠ 0."
+      },
+      {
+        "title": "Potential from charge integration",
+        "body": "For a continuous finite source, V = k∫dq/r. Unlike field integration, no direction projection is needed. A ring has V(z) = kQ/√(R²+z²). A finite rod on its axis gives V = kλ∫₀ᴸ dx/(a+x) = kλ ln[(a+L)/a]. Both use infinity as a valid zero for finite charge."
+      },
+      {
+        "title": "A caution about infinity",
+        "body": "An ideal infinite wire or plane extends forever; its potential generally cannot use a finite zero at infinity. Calculate potential differences relative to a finite radius or position. For a wire, V(b)−V(a) = −2kλ ln(b/a)."
+      }
+    ],
+    "example": [
+      "At the centre of a square, all four corners are the same distance away.",
+      "Vcentre = (k/r)(Q₁+Q₂+Q₃+Q₄).",
+      "For +10 μC,+10 μC,−20 μC, the fourth charge must be zero to make Vcentre zero."
+    ],
+    "check": {
+      "q": "At the midpoint of equal +Q and −Q charges, which statement is true?",
+      "options": [
+        "V = 0 and E = 0",
+        "V = 0 but E ≠ 0",
+        "V ≠ 0 but E = 0"
+      ],
+      "answer": 1,
+      "why": "Potentials cancel as scalars; fields both point from positive toward negative."
+    },
+    "lab": "potential",
+    "source": "9.2"
+  },
+  {
+    "id": "9.2b",
+    "unit": 9,
+    "title": "Walk the landscape",
+    "subtitle": "Integration · potential from electric field",
+    "goal": "Interpret the minus sign, the bounds, and the area under E.",
+    "sections": [
+      {
+        "title": "The central connection",
+        "body": "V(B)−V(A) = −∫ᴬᴮ E · dr. Cut the path into small displacements. Each contributes dV = −E · dr. A positive charge naturally accelerates toward decreasing V, but a particle’s actual velocity can temporarily point uphill if it already has kinetic energy."
+      },
+      {
+        "title": "One dimension",
+        "body": "Along x, ΔV = −∫ₓₐˣᵦ Eₓ(x) dx. The signed area under the Eₓ-versus-x graph gives −ΔV. For a constant field, this is a rectangle; for a linear field, a trapezoid; for a general function, integrate. Regions below the axis contribute negative area."
+      },
+      {
+        "title": "The reverse direction",
+        "body": "Eₓ = −dV/dx. A steep potential slope means a large field magnitude. A horizontal section means Eₓ = 0. In more than one dimension, E = −∇V: take a negative partial derivative in each direction. Equipotential surfaces meet field lines at right angles."
+      },
+      {
+        "title": "A complete example",
+        "body": "Let Eₓ = ax + b from x = xA to xB. Then ΔV = −[ax²/2 + bx]ₓₐˣᵦ. Shortcut: average the endpoint fields and multiply by Δx, then negate. Both methods agree because E is linear; averaging endpoints fails for most nonlinear functions."
+      },
+      {
+        "title": "Path independence",
+        "body": "An electrostatic field is conservative: any path with the same endpoints gives the same ΔV. Around a closed loop ∮E · dr = 0. This is different from Gauss’s closed SURFACE integral, which involves dA and enclosed charge."
+      }
+    ],
+    "example": [
+      "Eₓ = 3x N/C with x in metres, from x = 1 to 3 m.",
+      "ΔV = −∫₁³ 3x dx = −(3/2)(9−1) = −12 V.",
+      "Shortcut: average field is (3+9)/2 = 6 N/C; −Eavg Δx = −12 V."
+    ],
+    "check": {
+      "q": "If V(x) = 4x² volts with x in metres, Eₓ is…",
+      "options": [
+        "8x",
+        "−8x",
+        "−4x²"
+      ],
+      "answer": 1,
+      "why": "Differentiate V with respect to x and include the minus sign."
+    },
+    "lab": "potential",
+    "source": "9.2"
+  },
+  {
+    "id": "9.2c",
+    "unit": 9,
+    "title": "Potential inside a sphere",
+    "subtitle": "Piecewise integration · matching boundaries",
+    "goal": "Integrate in regions without using an outside formula inside.",
+    "sections": [
+      {
+        "title": "Start with the field",
+        "body": "For a uniformly charged insulating sphere, Einside = kQr/R³ and Eoutside = kQ/r². Potential must be built using the correct field in each region. V is continuous across an ordinary surface-charge sheet even when E has a jump."
+      },
+      {
+        "title": "Surface and interior",
+        "body": "From infinity to R, the sphere behaves like a point source, so V(R) = kQ/R. For r < R, V(r)−V(R) = −∫ᴿʳ kQs/R³ ds = kQ(R²−r²)/(2R³). Thus V(r) = kQ(3R²−r²)/(2R³)."
+      },
+      {
+        "title": "Centre versus surface",
+        "body": "V(0) = 3kQ/(2R), so Vcentre − Vsurface = kQ/(2R) for positive Q. Explicitly state subtraction order. The centre has zero field by symmetry but does not have zero potential."
+      },
+      {
+        "title": "Compare a conducting sphere",
+        "body": "A conductor has E = 0 throughout its material at equilibrium, so V is constant inside and equals kQ/R for an isolated spherical conductor. The uniform-insulator formula must not be used for a conductor. Surface charge and volume charge create different interior fields."
+      }
+    ],
+    "example": [
+      "Uniform sphere: integrate inward from the known surface value.",
+      "Because dr is negative while E is outward, −∫ E dr is positive.",
+      "The potential rises toward the centre even though E approaches zero there."
+    ],
+    "check": {
+      "q": "Inside an isolated charged conducting sphere at equilibrium, V is…",
+      "options": [
+        "Zero everywhere",
+        "Constant, but not necessarily zero",
+        "Proportional to r"
+      ],
+      "answer": 1,
+      "why": "E = −dV/dr = 0 implies constant V, not a specified zero value."
+    },
+    "lab": "gauss",
+    "source": "9.2"
+  },
+  {
+    "id": "9.3",
+    "unit": 9,
+    "title": "The energy glider",
+    "subtitle": "Conservation of electric energy",
+    "goal": "Find speeds and turning points without solving the whole trajectory.",
+    "sections": [
+      {
+        "title": "Write the energy ledger",
+        "body": "If only electric forces do work, Ki + qVi = Kf + qVf. Therefore ΔK = −qΔV. For a particle released from rest, v = √[−2qΔV/m] when the quantity inside the square root is nonnegative. A negative radicand means that endpoint is not accessible from those initial conditions."
+      },
+      {
+        "title": "A turning point",
+        "body": "At a one-dimensional turning point, v = 0, so K = 0. Solve the energy equation for its position. The force need not be zero there; acceleration usually reverses the motion. Equilibrium (F = 0) and turning point (instantaneous v = 0) are different ideas."
+      },
+      {
+        "title": "An integral route and an energy route",
+        "body": "You can first integrate work: ΔK = ∫qE · dr. Or first integrate potential, then use ΔK = −qΔV. They are the same physics. In a uniform field, constant-acceleration kinematics v² = v₀² + 2(qE/m)Δx also agrees."
+      },
+      {
+        "title": "External and non-electric forces",
+        "body": "If an outside agent or friction does work, add Wother: Δ(K+U) = Wother. Do not automatically set K+U constant in every problem. For a slowly controlled move, ΔK≈0 and the required external work equals ΔU."
+      }
+    ],
+    "example": [
+      "A +2e nucleus and +3e nucleus start at rest and fall through the same potential drop.",
+      "Their kinetic energies gained are 2e|ΔV| and 3e|ΔV|.",
+      "The ratio is 3/2, independent of their masses. Their speeds do depend on mass."
+    ],
+    "check": {
+      "q": "At a turning point in a nonzero uniform electric field, a charged particle has…",
+      "options": [
+        "Zero speed and nonzero acceleration",
+        "Zero acceleration and nonzero speed",
+        "Zero force"
+      ],
+      "answer": 0,
+      "why": "The particle pauses instantaneously while the nonzero force changes the direction of velocity."
+    },
+    "lab": "potential",
+    "source": "9.3"
+  },
+  {
+    "id": "10.1",
+    "unit": 10,
+    "title": "The conductor citadel",
+    "subtitle": "Equilibrium, shielding & cavities",
+    "goal": "Apply conductor rules only in the regions where they hold.",
+    "sections": [
+      {
+        "title": "Why the field vanishes in metal",
+        "body": "If a static electric field remained inside a metal, its mobile charges would accelerate and redistribute. At electrostatic equilibrium that redistribution has made E = 0 in the conducting material. Consequently the entire connected conductor is an equipotential."
+      },
+      {
+        "title": "At the surface",
+        "body": "The field just outside a smooth conductor is perpendicular to the surface; a tangential component would move charges. Excess charge resides on surfaces. Surface charge can be nonuniform, especially near sharp points or nearby objects. Do not assume all conducting objects have uniform σ."
+      },
+      {
+        "title": "Cavities",
+        "body": "A charge +q isolated inside a cavity of a neutral conductor induces −q on the cavity wall and +q on the outer surface. A Gaussian surface lying entirely in the metal has zero field, so it must enclose zero net charge. E in the cavity need not be zero if it contains a charge. An empty closed cavity is shielded from external electrostatic fields."
+      },
+      {
+        "title": "Concentric spheres",
+        "body": "A solid sphere of radius a and charge +q sits inside a neutral conducting shell with inner radius b and outer radius c. E = 0 for r < a; E = kq/r² for a < r < b; E = 0 for b < r < c; E = kq/r² for r > c. Induced shell charges are −q at b and +q at c."
+      },
+      {
+        "title": "Integrating potential across regions",
+        "body": "V is constant through each metal region, but changes across gaps. Integrate only where E is nonzero and keep V continuous across boundaries. Grounding fixes a reference potential and can change the total charge by exchange with Earth."
+      }
+    ],
+    "example": [
+      "Place +q inside a neutral closed metal shell.",
+      "Draw a Gaussian surface inside the metal: Qenc = q + Qinner = 0.",
+      "Hence Qinner = −q. Charge conservation on the neutral shell then gives Qouter = +q."
+    ],
+    "check": {
+      "q": "A charge is placed inside a cavity. Where must E be zero at equilibrium?",
+      "options": [
+        "Everywhere in the cavity",
+        "In the conducting material",
+        "Everywhere outside"
+      ],
+      "answer": 1,
+      "why": "Free charges eliminate the field in metal. They do not generally eliminate the field in a cavity containing a charge."
+    },
+    "lab": "induction",
+    "source": "10.1"
+  },
+  {
+    "id": "10.2",
+    "unit": 10,
+    "title": "Two conductors, one voltage",
+    "subtitle": "Charge redistribution & capacitance",
+    "goal": "Use potential equality instead of assuming equal charge.",
+    "sections": [
+      {
+        "title": "Connected conductors",
+        "body": "When a conducting wire joins two conductors, charges move until their potentials are equal. For widely separated spheres, V ≈ kQ/R, so Q₁/R₁ = Q₂/R₂. Larger spheres end with more charge. The approximation neglects mutual influence; nearby conductors require a more complete calculation."
+      },
+      {
+        "title": "An electric storage pair",
+        "body": "Two conductors with charges +Q and −Q can form a capacitor. Define capacitance C = Q/|ΔV|. Here Q is the magnitude on one conductor, not the sum of the two magnitudes. Capacitance measures how much separated charge is stored per volt and has units farads (F)."
+      },
+      {
+        "title": "Geometry sets capacitance",
+        "body": "For a linear dielectric and fixed geometry, C is independent of the present Q and V. Doubling Q doubles V, leaving C unchanged. An isolated sphere relative to infinity has C = 4πε₀R. Two nearby conductors affect each other and need their own geometry formula."
+      },
+      {
+        "title": "Connected to ground",
+        "body": "Earth is a large charge reservoir. A conductor can gain or lose charge until its potential equals ground. With nearby charged objects, a grounded conductor can carry nonzero net charge. Potential is set; charge adjusts."
+      }
+    ],
+    "example": [
+      "Two far-separated spheres have radii R and 2R and total charge 6q.",
+      "Equal potentials give Qlarge = 2Qsmall.",
+      "Conservation gives Qsmall = 2q and Qlarge = 4q. Equal charge would leave different potentials."
+    ],
+    "check": {
+      "q": "If a fixed capacitor’s charge and voltage both triple, its capacitance…",
+      "options": [
+        "Triples",
+        "Stays the same",
+        "Becomes one third"
+      ],
+      "answer": 1,
+      "why": "C = Q/V; both numerator and denominator scale equally."
+    },
+    "lab": null,
+    "source": "10.2"
+  },
+  {
+    "id": "10.3a",
+    "unit": 10,
+    "title": "The capacitor engine",
+    "subtitle": "Parallel plates & stored energy",
+    "goal": "Derive C and U and distinguish battery-connected from isolated.",
+    "sections": [
+      {
+        "title": "The parallel-plate model",
+        "body": "Two large plates have area A, separation d, and charges ±Q. Ignoring edge effects, each plate contributes σ/(2ε₀); inside the gap the fields add to E = σ/ε₀ = Q/(ε₀A). Outside, they approximately cancel. Potential difference magnitude is V = ∫₀ᵈ E dx = Ed."
+      },
+      {
+        "title": "Derive capacitance",
+        "body": "Substitute the field into V: V = Qd/(ε₀A). Therefore C = Q/V = ε₀A/d. Larger area stores more charge at a fixed voltage; larger separation requires more voltage for the same charge. This expression assumes d is small compared with plate dimensions."
+      },
+      {
+        "title": "Energy needs an integral",
+        "body": "Charging starts with zero voltage. When the capacitor already carries charge q, adding dq requires dW = V(q)dq = (q/C)dq. U = ∫₀ᑫ (q/C)dq = Q²/(2C) = ½QV = ½CV². Multiplying final Q by final V overcounts by two because the voltage grew during charging."
+      },
+      {
+        "title": "Energy in the field",
+        "body": "For vacuum, u = ½ε₀E² is energy per volume. Between ideal plates, U = uAd. This agrees with the charging-work calculation. In a uniform linear dielectric, use ε = κε₀."
+      },
+      {
+        "title": "Which quantity stays fixed?",
+        "body": "Battery connected: V is fixed and charge can flow. Battery disconnected: the isolated plates keep Q fixed while V changes. For example, doubling d halves C. At fixed Q, U doubles; at fixed V, stored U halves. Mechanical work and battery energy account for the difference."
+      }
+    ],
+    "example": [
+      "A = 0.010 m² and d = 1.0 mm in vacuum.",
+      "C = 8.854×10⁻¹²×0.010/0.001 = 88.5 pF.",
+      "At 12 V, Q = 1.06 nC and U = 6.37 nJ."
+    ],
+    "check": {
+      "q": "Why is capacitor energy ½QV, rather than QV?",
+      "options": [
+        "Charge is not conserved",
+        "Voltage rises from 0 to V while charging",
+        "Half the charge disappears"
+      ],
+      "answer": 1,
+      "why": "Integrating the growing voltage gives an average charging voltage of V/2."
+    },
+    "lab": "capacitor",
+    "source": null
+  },
+  {
+    "id": "10.3b",
+    "unit": 10,
+    "title": "Curved capacitors",
+    "subtitle": "Integration · cylindrical and spherical geometry",
+    "goal": "Follow Q → E(r) → ΔV → C in a new geometry.",
+    "sections": [
+      {
+        "title": "A coaxial cylinder",
+        "body": "Inner radius a, outer radius b, length L with L ≫ b. A cylindrical Gaussian surface inside the gap gives E(2πrL) = Q/ε₀, so E(r) = Q/(2πε₀Lr). The outer conductor is at lower potential when the inner conductor is positive."
+      },
+      {
+        "title": "Integrate voltage, not an average guess",
+        "body": "Vinner − Vouter = ∫ₐᵇ E(r) dr = [Q/(2πε₀L)]ln(b/a). Then C = 2πε₀L/ln(b/a). The logarithm appears because ∫dr/r = ln r. The log argument b/a is dimensionless. Multiplying one endpoint field by b−a is not exact."
+      },
+      {
+        "title": "A spherical capacitor",
+        "body": "Concentric spherical conductors have radii a and b. In the gap, E = Q/(4πε₀r²). Integrating gives Vinner−Vouter = Q(1/a−1/b)/(4πε₀). Thus C = 4πε₀ab/(b−a). As b → ∞, C approaches 4πε₀a, the isolated-sphere result."
+      },
+      {
+        "title": "A useful shortcut with limits",
+        "body": "When the gap b−a is very small compared with the inner radius, the curved surfaces locally resemble parallel plates. This gives an approximate C ≈ ε₀A/d, a check on the exact formula. Use the integral as the full derivation in the uploaded coaxial FRQ."
+      }
+    ],
+    "example": [
+      "For a coaxial capacitor, doubling L doubles C if a and b are fixed.",
+      "At fixed Q, the field and voltage are halved because charge per length halves.",
+      "At fixed V, twice the charge can be stored."
+    ],
+    "check": {
+      "q": "The logarithm in the coaxial voltage comes from integrating…",
+      "options": [
+        "1/r",
+        "r",
+        "1/r²"
+      ],
+      "answer": 0,
+      "why": "The cylindrical field is proportional to 1/r."
+    },
+    "lab": "potential",
+    "source": null
+  },
+  {
+    "id": "10.3c",
+    "unit": 10,
+    "title": "Connect the storage cells",
+    "subtitle": "Series & parallel capacitor networks",
+    "goal": "Follow charge and voltage constraints in a circuit.",
+    "sections": [
+      {
+        "title": "Parallel means shared endpoints",
+        "body": "Capacitors attached across the same two nodes have the same voltage. Their charges add: Qtotal = ΣCiV, so Ceq = ΣCi. A drawing’s visual arrangement does not determine parallel connection; shared electrical nodes do."
+      },
+      {
+        "title": "Series means intermediate isolated nodes",
+        "body": "For an initially uncharged simple series chain, the internal isolated nodes remain neutral, so each capacitor has the same charge magnitude Q. Voltages add: Vtotal = ΣQ/Ci, hence 1/Ceq = Σ1/Ci. The smaller capacitor gets the larger voltage. These simple equal-Q rules assume no extra initial net charge on the intermediate nodes."
+      },
+      {
+        "title": "Mixed networks",
+        "body": "Reduce a clear series or parallel subnetwork, redraw, and repeat. Then work backward to recover voltages and charges on individual capacitors. Equivalent capacitance determines total charge from the battery, not the charge on every element."
+      },
+      {
+        "title": "Energy bookkeeping",
+        "body": "Compute Ui = ½CiVi² for each capacitor and add. The total equals ½CeqVtotal² for an ideal equivalent network in the stated initial-charge conditions. If charged capacitors are connected and redistribute charge, some energy can dissipate in wires or radiation; charge conservation alone does not guarantee stored energy conservation."
+      }
+    ],
+    "example": [
+      "A 2 μF and 3 μF pair are in series across 10 V.",
+      "Ceq = (2×3)/(2+3) = 1.2 μF, so Q = 12 μC on each.",
+      "Voltages are 6 V and 4 V. They add to the 10 V supply."
+    ],
+    "check": {
+      "q": "Two capacitors in parallel necessarily share the same…",
+      "options": [
+        "Charge",
+        "Voltage",
+        "Capacitance"
+      ],
+      "answer": 1,
+      "why": "They connect to the same two nodes, so they have the same potential difference."
+    },
+    "lab": "network",
+    "source": null
+  },
+  {
+    "id": "10.4",
+    "unit": 10,
+    "title": "The dielectric forest",
+    "subtitle": "Polarization & fixed-Q/fixed-V cases",
+    "goal": "Explain why inserting a dielectric changes charge storage.",
+    "sections": [
+      {
+        "title": "What the material does",
+        "body": "An electric field slightly separates bound positive and negative charge or aligns permanent dipoles in a dielectric. Their polarization creates a field opposing the free-charge field. They do not freely flow across the gap like conduction electrons. For a uniform linear dielectric completely filling a capacitor, permittivity is ε = κε₀ with κ ≥ 1."
+      },
+      {
+        "title": "Capacitance increases",
+        "body": "For completely filled parallel plates, C = κε₀A/d. The same separated free charge produces a smaller voltage because the net field is reduced. Therefore more free charge can be stored per volt."
+      },
+      {
+        "title": "Disconnected: charge fixed",
+        "body": "With the battery removed, Q is fixed. Inserting a full dielectric multiplies C by κ, divides V and E by κ, and divides stored energy Q²/(2C) by κ. The change can supply mechanical work as the material is drawn inward."
+      },
+      {
+        "title": "Connected: voltage fixed",
+        "body": "With the battery connected, V is fixed. Inserting the dielectric multiplies C and Q by κ. E = V/d stays fixed. Stored energy ½CV² grows by κ; the battery supplies energy and charge. It is incorrect to say the field always decreases when a dielectric is inserted."
+      },
+      {
+        "title": "Partial filling",
+        "body": "If side-by-side regions occupy different fractions of plate area and span the full gap, model them as parallel capacitors. If layers stack along the field direction across portions of the gap, model them as series capacitors. State the idealization and neglect fringing."
+      }
+    ],
+    "example": [
+      "A vacuum capacitor has C₀. Insert κ = 4 material fully.",
+      "Disconnected: C = 4C₀, Q = Q₀, V = V₀/4, U = U₀/4.",
+      "Connected: C = 4C₀, V = V₀, Q = 4Q₀, U = 4U₀."
+    ],
+    "check": {
+      "q": "A dielectric is inserted fully while a battery stays connected. The plate field E…",
+      "options": [
+        "Decreases by κ",
+        "Increases by κ",
+        "Stays the same"
+      ],
+      "answer": 2,
+      "why": "The battery fixes V and the gap d is unchanged, so E = V/d stays fixed."
+    },
+    "lab": "capacitor",
+    "source": null
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "name": "Flux AP Physics C E&M Expedition",
+  "short_name": "Flux E&M",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#061728",
+  "theme_color": "#071b31",
+  "icons": []
+}

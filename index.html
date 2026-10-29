@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071b31">
+  <meta name="description" content="A beginner-first AP Physics C Electricity and Magnetism learning expedition through Units 8, 9, and 10.">
+  <title>Flux · AP Physics C E&M Expedition</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+  <div id="stars" aria-hidden="true"></div>
+  <div id="profileGate" class="gate">
+    <div class="gate-card glass">
+      <div class="brand-mark" aria-hidden="true"><span>Φ</span></div>
+      <p class="eyebrow">AP PHYSICS C · E&M</p>
+      <h1>Enter the field.</h1>
+      <p class="gate-copy">A guided expedition through charge, potential, and capacitance—built for your first encounter with physics.</p>
+      <div id="profileList" class="profile-list"></div>
+      <form id="profileForm" class="profile-form">
+        <label for="newProfile">Create a local explorer</label>
+        <div class="input-row"><input id="newProfile" maxlength="24" placeholder="Your name" autocomplete="off"><button class="btn primary" type="submit">Begin</button></div>
+      </form>
+      <p class="micro">Progress stays in this browser. You can export it or enable cloud sync later.</p>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar glass">
+      <a class="brand" href="#home" aria-label="Flux home"><span class="brand-orbit">Φ</span><span><b>FLUX</b><small>field expedition</small></span></a>
+      <nav id="mainNav" aria-label="Main navigation">
+        <a href="#home" data-route="home"><span>⌂</span>Camp</a>
+        <a href="#map" data-route="map"><span>⌁</span>Expedition map</a>
+        <a href="#practice" data-route="practice"><span>◎</span>Question vault</a>
+        <a href="#worked" data-route="worked"><span>Σ</span>Worked examples</a>
+        <a href="#frq" data-route="frq"><span>∫</span>FRQ workshop</a>
+        <a href="#labs" data-route="labs"><span>✦</span>Field labs</a>
+        <a href="#exam" data-route="exam"><span>◷</span>Mock exams</a>
+        <a href="#cheatsheet" data-route="cheatsheet"><span>▤</span>Field guide</a>
+      </nav>
+      <div class="side-bottom">
+        <div class="streak-card"><span id="streakIcon">🔥</span><div><b id="streakValue">0 day</b><small>study streak</small></div></div>
+        <button id="profileButton" class="profile-chip"><span id="profileInitial">Z</span><span><b id="profileName">Explorer</b><small id="profileLevel">Level 1</small></span><i>⌄</i></button>
+      </div>
+    </aside>
+
+    <header class="topbar glass">
+      <button id="menuButton" class="icon-button" aria-label="Open navigation">☰</button>
+      <div id="crumb" class="crumb">Base camp</div>
+      <div class="top-progress"><span>Journey</span><div class="progress-track"><i id="globalProgress"></i></div><b id="globalPercent">0%</b></div>
+      <button id="searchButton" class="icon-button" aria-label="Search">⌕</button>
+      <button id="tutorButton" class="tutor-call"><span>✦</span><span>Ask Flux</span></button>
+    </header>
+
+    <main id="view" tabindex="-1"></main>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="modal" class="modal" hidden><div class="modal-backdrop" data-close-modal></div><section id="modalPanel" class="modal-panel glass" role="dialog" aria-modal="true"></section></div>
+
+  <aside id="tutor" class="tutor-panel glass" aria-label="Flux tutor" hidden>
+    <header><div><span class="tutor-glyph">✦</span><b>Flux guide</b><small id="tutorContext">Knows where you are</small></div><button id="closeTutor" class="icon-button" aria-label="Close tutor">×</button></header>
+    <div id="tutorMessages" class="tutor-messages"><div class="message guide">I can give a hint, explain a step, or show why an integral works. I’ll use the lesson or question you have open.</div></div>
+    <div class="quick-prompts"><button>Give me one hint</button><button>Why integrate?</button><button>Explain simply</button></div>
+    <form id="tutorForm"><textarea id="tutorInput" rows="2" placeholder="What is confusing?"></textarea><button class="btn primary" type="submit">Send</button></form>
+  </aside>
+
+  <template id="loadingTemplate"><div class="loading"><span></span><p>Mapping the electric field…</p></div></template>
+  <script src="config.js?v=3" defer></script>
+  <script src="app.js?v=3" defer></script>
+</body>
+</html>
